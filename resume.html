@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<script>
+    function toggleDarkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+</script>
+
+<html>
+
+<head>
+    <!-- AVOID SHRINKING FLEXBOX TEXT ON MOBILE -->
+    <meta name="viewport" content="width=device-width">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- CSS STYLES -->
+    <style>
+        :root {
+            /* CONSTANTS */
+            --us-letter-page-width: 8.5in;
+            --us-letter-page-height: 11in;
+            /* VARIABLES */
+            --scale-factor-for-printing-to-pdf: 0.9;
+            --left-right-padding-min: 36pt;
+            /* Set the max width of the centered page such that, when printing to a US Letter PDF with the
+       given scale factor, the main column will have the same character width as on-screen. */
+            --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - 2 * var(--left-right-padding-min));
+            --left-column-width: 2in;
+            --inter-column-padding: 36pt;
+            --font-scale: 88%;
+            --line-height: 130%;
+            /* --primary-font: IBM Plex Sans; */
+            --primary-font: Inter;
+            --header-padding-top: 18pt;
+            --info-item-margin: 2pt;
+            --title-font: var(--primary-font);
+            --title-font-size: xxx-large;
+            --title-letterspacing: 2pt;
+            --subtitle-margin-top: 2pt;
+            --subtitle-font: var(--primary-font);
+            --subtitle-font-size: medium;
+            --subtitle-letterspacing: 1.6pt;
+            --header-padding-bottom: 18pt;
+            --gradient-line-width: 4pt;
+            --heading-font: IBM Plex Mono;
+            --heading-margin-top: 18pt;
+            --heading-margin-bottom: 6pt;
+            --entry-heading-margin-top: 12pt;
+            --entry-subheading-margin-top: 1pt;
+            --entry-subheading-margin-bottom: 8pt;
+            --bulleted-item-margin: 6pt;
+            --footer-padding: 36pt;
+            --accent-color-1: #155799;
+            --accent-color-2: #159957;
+            /* Light Mode */
+            --main-background-color: #ffffff;
+            --side-bar-color: #eeeeee;
+            --text-color: #000000;
+        }
+
+        .dark-mode {
+            /* Dark Mode */
+            --main-background-color: #000000;
+            --side-bar-color: #111111;
+            --text-color: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--main-background-color);
+            line-height: var(--line-height);
+            font-size: var(--font-scale);
+            font-family: var(--primary-font);
+            color: var(--text-color);
+        }
+
+        .outer-container {
+            min-height: calc(max(100vh, var(--us-letter-page-height) / var(--scale-factor-for-printing-to-pdf)));
+            display: flex;
+            flex-direction: row;
+        }
+
+        .outer-container .left-padding {
+            flex: 1 0 var(--left-right-padding-min);
+            background-color: var(--side-bar-color);
+        }
+
+        .outer-container .right-padding {
+            flex: 1 0 var(--left-right-padding-min);
+            background-color: var(--main-background-color);
+        }
+
+        .outer-container .centered-page {
+            flex: 0 1 var(--centered-page-width-max);
+        }
+
+        @media (min-width: 710px) {
+            .outer-container .centered-page {
+                display: grid;
+                grid-template-areas:
+                    "top-left top-right"
+                    "gradient-line gradient-line"
+                    "main-left main-right";
+                grid-template-columns: var(--left-column-width);
+                grid-template-rows: min-content min-content 1fr;
+            }
+        }
+
+        .outer-container .centered-page ul.top-left {
+            grid-area: top-left;
+            background-color: var(--side-bar-color);
+            padding-top: var(--header-padding-top);
+            padding-right: calc(var(--inter-column-padding) / 2);
+            align-content: center;
+            margin-top: 0;
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            padding-bottom: var(--header-padding-bottom);
+        }
+
+        .outer-container .centered-page ul.top-left li:not(:first-child):not(:last-child) {
+            margin-top: var(--info-item-margin);
+            margin-bottom: var(--info-item-margin);
+        }
+
+        .outer-container .centered-page .top-right {
+            grid-area: top-right;
+            background-color: var(--main-background-color);
+            padding-top: var(--header-padding-top);
+            padding-left: calc(var(--inter-column-padding) / 2);
+            align-content: center;
+            padding-bottom: var(--header-padding-bottom);
+        }
+
+        .outer-container .centered-page .top-right .title {
+            line-height: 100%;
+            font-family: var(--title-font);
+            font-size: var(--title-font-size);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: var(--title-letterspacing);
+        }
+
+        .outer-container .centered-page .top-right .subtitle {
+            margin-top: var(--subtitle-margin-top);
+            font-family: var(--subtitle-font);
+            font-size: var(--subtitle-font-size);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: var(--subtitle-letterspacing);
+        }
+
+        .gradient-line {
+            grid-area: gradient-line;
+            height: var(--gradient-line-width);
+            background-image: linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -o-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -moz-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -ms-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0, var(--accent-color-1)), color-stop(1, var(--accent-color-2)));
+        }
+
+        .outer-container .centered-page .main-left {
+            grid-area: main-left;
+            background-color: var(--side-bar-color);
+            padding-right: calc(var(--inter-column-padding) / 2);
+            padding-bottom: var(--footer-padding);
+        }
+
+        .outer-container .centered-page .main-right {
+            grid-area: main-right;
+            background-color: var(--main-background-color);
+            padding-left: calc(var(--inter-column-padding) / 2);
+            padding-bottom: var(--footer-padding);
+        }
+
+        .outer-container .centered-page .heading {
+            text-transform: uppercase;
+            letter-spacing: 2pt;
+            font-family: var(--heading-font);
+            padding-top: var(--heading-margin-top);
+            margin-bottom: var(--heading-margin-bottom);
+        }
+
+        .outer-container .centered-page .heading.left-heading:after {
+            margin-top: var(--heading-margin-bottom);
+            content: "";
+            display: block;
+            border: 1pt solid var(--accent-color-1);
+        }
+
+        .outer-container .centered-page .heading.right-heading:after {
+            margin-top: var(--heading-margin-bottom);
+            content: "";
+            display: block;
+            border: 1pt solid var(--accent-color-2);
+        }
+
+        .outer-container .centered-page ul {
+            margin-top: var(--bulleted-item-margin);
+            padding-left: 1.75em;
+            list-style-type: disc;
+        }
+
+        .outer-container .centered-page ul.padded-list li {
+            margin-top: var(--bulleted-item-margin);
+            margin-bottom: var(--bulleted-item-margin);
+        }
+
+        .outer-container .centered-page ul.unpadded-list li {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .outer-container .centered-page .entry-heading {
+            display: flex;
+            margin-top: var(--entry-heading-margin-top);
+        }
+
+        .outer-container .centered-page .entry-heading .left {
+            flex: 1 1 auto;
+            margin-right: 12pt;
+            font-weight: bold;
+        }
+
+        .outer-container .centered-page .entry-heading .right {
+            flex: 0 1 auto;
+            text-align: right;
+        }
+
+        .outer-container .centered-page .entry-subheading {
+            display: flex;
+            margin-top: var(--entry-subheading-margin-top);
+            margin-bottom: var(--entry-subheading-margin-bottom);
+        }
+
+        .outer-container .centered-page .entry-subheading .left {
+            flex: 1 1 auto;
+            margin-right: 12pt;
+            font-style: italic;
+        }
+
+        .outer-container .centered-page .entry-subheading .right {
+            flex: 0 1 auto;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-container">
+        <div class="left-padding"></div>
+        <div class="centered-page">
+            <!-- INFO SECTION -->
+            <ul class="top-left">
+                <li style="padding-bottom: 3pt;"><button onclick="toggleDarkMode()">Dark/Light</button></li>
+                <li>(778) 237-5533</li>
+                <li style="font-size: small; margin-top: -1pt;"><a style="color: var(--text-color);"
+                        href="mailto:keeganmjgreen@gmail.com">keeganmjgreen@gmail.com</a></li>
+                <li>Ottawa, ON</li>
+            </ul>
+
+            <!-- NAME SECTION -->
+            <div class="top-right">
+                <div class="title">Keegan Green</div>
+                <div class="subtitle">Motivated &middot; Adaptable &middot; Dependable</div>
+            </div>
+
+            <div class="gradient-line"></div>
+
+            <script type="text/javascript">
+                var printPage = 0;  // 0 = viewing in-browser, 1 = for printing page 1, 2 = for printing page 2.
+
+                var htmlToAdd = "";
+
+                document.write('<div class="main-left">');
+                if (printPage == 0 | printPage == 1) {
+                    htmlToAdd += (
+                        `
+                        <!-- SKILLS SECTION -->
+                        <div class="heading left-heading">Skillset</div>
+                        <div class="entry-heading">
+                            <div class="left">Software/Engineering</div>
+                        </div>
+                        <ul class="padded-list">
+                            <li><strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK</li>
+                            <li><strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, SQLAlchemy</li>
+                            <li>Basic Java</li>
+                            <li>Basic Go</li>
+                            <li>MATLAB/Simulink and Optimization Toolbox</li>
+                            <li>Git</li>
+                            <li>Linux</li>
+                            <li>Docker</li>
+                            <li>Relational databases (PostgreSQL) <br> and ORMs</li>
+                            <li>Grafana</li>
+                        </ul>
+                        <div class="entry-heading">
+                            <div class="left">Control Systems</div>
+                        </div>
+                        <ul class="padded-list">
+                            <li>Modern optimal and digital control</li>
+                            <li>Modeling and simulation</li>
+                        </ul>
+                        <div class="entry-heading">
+                            <div class="left">Electrical Systems</div>
+                        </div>
+                        <ul class="padded-list">
+                            <li>Power and signal electronics analysis</li>
+                            <li>Digital design</li>
+                            <li>Microcontrollers and single-board computers</li>
+                            <li>Real-time systems</li>
+                        </ul>
+                        `
+                    );
+                }
+                htmlToAdd += '</div>';
+
+                htmlToAdd += '<div class="main-right">';
+                if (printPage == 0 | printPage == 1) {
+                    htmlToAdd += (
+                        `
+                        <!-- "WHAT I'M GREAT AT" SECTION -->
+                        <div class="heading right-heading">What I&rsquo;m Great At</div>
+                        <ul>
+                            <li>End-to-end problem solving, from conception to deployment</li>
+                            <li>Creating reusable, well-documented software</li>
+                            <li>Considering all aspects of a problem, from technical to green energy implications</li>
+                        </ul>
+
+                        <!-- EXPERIENCE SECTION -->
+                        <div class="heading right-heading">Experience</div>
+
+                        <!-- Experience: Optimization Engineer -->
+                        <div class="entry-heading">
+                            <div class="left">Optimization Engineer</div>
+                            <div class="right">2024 &ndash; Present</div>
+                        </div>
+                        <div class="entry-subheading">
+                            <div class="left">BluWave~ai</div>
+                            <div class="right">Ottawa, ON</div>
+                        </div>
+                        <ul class="padded-list">
+                            <li>Developed, deployed, and maintained an optimization service that performs city-wide demand
+                                response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere
+                                program with Hydro Ottawa
+                                <ul>
+                                    <li>Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is
+                                        sufficiently green</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Developed and deployed an optimizer that sends timely and helpful charging site recommendations
+                                to Dubai Taxi EV drivers
+                                <ul>
+                                    <li>Created a real-time simulator of EV taxi fleet operations, showcased at COP28, which
+                                        helped to progress the pilot project with Dubai Taxi to the next stage</li>
+                                </ul>
+                            </li>
+                            <li>Developed and deployed prototype optimizers of electric bus charging operations for multiple
+                                transit agencies in simulation
+                                <ul>
+                                    <li>Created optimization models for peak-shaving and energy cost minimization in a model
+                                        predictive control scheme, used in a simulation study for Ontario&rsquo;s 11 Roxborough school
+                                        bus depots</li>
+                                </ul>
+                            </li>
+                            <li>Developed software to smooth the power input to a solar-powered hydrogen generation and storage
+                                system, thereby extending its lifespan</li>
+                            <li>Created a library used by multiple projects for testing smart grid control software in a variety
+                                of simulated environments.</li>
+                            <li>Created, evaluated, and deployed an estimator of peak power consumption to improve the accuracy
+                                of a predictor pipeline for Mumbai&rsquo;s city load</li>
+                            <li>Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s</li>
+                            <li>Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system</li>
+                            <li>Co-inventor on a patent application for the real-time, data-driven minimization of cost and
+                                greenhouse gas emissions with EV charging stations</li>
+                        </ul>
+
+                        <!-- Experience: Systems Engineering Co-op -->
+                        <div class="entry-heading">
+                            <div class="left">Systems Engineering Co-op</div>
+                            <div class="right">Sep &ndash; Dec 2020</div>
+                        </div>
+                        <div class="entry-subheading">
+                            <div class="left">Jastram Engineering</div>
+                            <div class="right">Vancouver, BC</div>
+                        </div>
+                        <ul class="padded-list">
+                            <li>For steering systems on naval frigates:
+                                <ul class="unpadded-list">
+                                    <li>Developed documentation for security, safety, risk management, and failure analysis</li>
+                                    <li>Verified conformance of electrical systems to NATO standardization agreement</li>
+                                    <li>Successfuly performed vibration analysis for hydraulic power units in Python</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        `
+                    );
+                }
+                if (printPage == 0 | printPage == 2) {
+                    htmlToAdd += (
+                        `
+                        <!-- EDUCATION SECTION -->
+                        <div class="heading right-heading">Education</div>
+
+                        <div class="entry-heading">
+                            <div class="left">BASc Mechatronic Systems Engineering</div>
+                            <div class="right">2024 &ndash; Present</div>
+                        </div>
+                        <div class="entry-subheading">
+                            <div class="left">Simon Fraser University</div>
+                            <div class="right">Vancouver, BC</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll</li>
+                            <li>4.33 GPA in statistics and engineering optimization courses</li>
+                        </ul>
+
+                        <!-- PROJECTS SECTION -->
+                        <div class="heading right-heading">Projects</div>
+
+                        <div class="entry-heading">
+                            <div class="left">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</div>
+                            <div class="right">July 2023 &ndash; Present</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">SignalPerfect Python library for signal resampling</div>
+                            <div class="right">July &ndash; Dec 2024</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">Series About Energy, Renewables, and Climate Change</div>
+                            <div class="right">2022 &ndash; Present</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">Cluedo Game Simulator and AI Assistant</div>
+                            <div class="right">Feb &ndash; Mar 2023</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">IoT Integration of a Hydroponic Farm</div>
+                            <div class="right">Sep 2022 &ndash; Jan 2023</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">Energy Yield Model of a Gas Turbine</div>
+                            <div class="right">Jan &ndash; Feb 2021</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">Model of Fuel Cell EV Air Supply System for Optimization</div>
+                            <div class="right">Mar &ndash; May 2020</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+
+                        <div class="entry-heading">
+                            <div class="left">Optimization of a Telescopic Handler Mechanism</div>
+                            <div class="right">Mar &ndash; Apr 2020</div>
+                        </div>
+                        <ul class="unpadded-list">
+                            <li>TODO</li>
+                        </ul>
+                        `
+                    );
+                }
+                htmlToAdd += '</div>';
+                document.write(htmlToAdd)
+            </script>
+        </div>
+        <div class="right-padding"></div>
+    </div>
+</body>
+
+</html>
