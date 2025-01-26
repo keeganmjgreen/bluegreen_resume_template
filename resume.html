@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 
-<script>
-    function toggleDarkMode() {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-    }
-</script>
-
 <html>
 
 <head>
@@ -63,11 +56,13 @@
             --text-color: #000000;
         }
 
-        .dark-mode {
-            /* Dark Mode */
-            --main-background-color: #000000;
-            --side-bar-color: #111111;
-            --text-color: #cccccc;
+        @media only screen and (prefers-color-scheme: dark)  {
+            :root {
+                /* Dark Mode */
+                --main-background-color: #000000;
+                --side-bar-color: #111111;
+                --text-color: #cccccc;
+            }
         }
 
         body {
@@ -260,7 +255,6 @@
         <div class="centered-page">
             <!-- INFO SECTION -->
             <ul class="top-left">
-                <li style="padding-bottom: 3pt;"><button onclick="toggleDarkMode()">Dark/Light</button></li>
                 <li>(778) 237-5533</li>
                 <li style="font-size: small; margin-top: -1pt;"><a style="color: var(--text-color);"
                         href="mailto:keeganmjgreen@gmail.com">keeganmjgreen@gmail.com</a></li>
