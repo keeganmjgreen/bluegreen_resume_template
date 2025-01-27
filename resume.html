@@ -19,10 +19,13 @@
             --us-letter-page-height: 11in;
             /* VARIABLES */
             --scale-factor-for-printing-to-pdf: 0.9;
-            --left-right-padding-min: 36pt;
+            --left-padding-min: 36pt;
+            --right-padding-min: var(--left-padding-min);
+            --mobile-left-padding-min: 18pt;
+            --mobile-right-padding-min: 36pt;
             /* Set the max width of the centered page such that, when printing to a US Letter PDF with the
        given scale factor, the main column will have the same character width as on-screen. */
-            --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - 2 * var(--left-right-padding-min));
+            --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - var(--left-padding-min) - var(--right-padding-min));
             --left-column-width: 2in;
             --inter-column-padding: 36pt;
             --font-scale: 88%;
@@ -81,12 +84,12 @@
         }
 
         .outer-container .left-padding {
-            flex: 1 0 var(--left-right-padding-min);
+            flex: 1 0 var(--left-padding-min);
             background-color: var(--side-bar-color);
         }
 
         .outer-container .right-padding {
-            flex: 1 0 var(--left-right-padding-min);
+            flex: 1 0 var(--right-padding-min);
             background-color: var(--main-background-color);
         }
 
@@ -94,7 +97,14 @@
             flex: 0 1 var(--centered-page-width-max);
         }
 
-        @media (min-width: 710px) {
+        @media (max-width: 723px) {
+            :root {
+                --left-padding-min: var(--mobile-left-padding-min);
+                --right-padding-min: var(--mobile-right-padding-min);
+            }
+        }
+
+        @media (min-width: 724px) {
             .outer-container .centered-page {
                 display: grid;
                 grid-template-areas:
