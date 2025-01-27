@@ -24,7 +24,7 @@
             --mobile-left-padding-min: 18pt;
             --mobile-right-padding-min: 36pt;
             /* Set the max width of the centered page such that, when printing to a US Letter PDF with the
-       given scale factor, the main column will have the same character width as on-screen. */
+               given scale factor, the main column will have the same character width as on-screen. */
             --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - var(--left-padding-min) - var(--right-padding-min));
             --left-column-width: 2in;
             --inter-column-padding: 36pt;
@@ -50,6 +50,7 @@
             --entry-subheading-margin-top: 1pt;
             --entry-subheading-margin-bottom: 8pt;
             --bulleted-item-margin: 6pt;
+            --bottom-padding: 18pt;
             --footer-padding: 36pt;
             --accent-color-1: #155799;
             --accent-color-2: #159957;
@@ -59,7 +60,7 @@
             --text-color: #000000;
         }
 
-        @media only screen and (prefers-color-scheme: dark)  {
+        @media only screen and (prefers-color-scheme: dark) {
             :root {
                 /* Dark Mode */
                 --main-background-color: #000000;
@@ -110,9 +111,11 @@
                 grid-template-areas:
                     "top-left top-right"
                     "gradient-line gradient-line"
-                    "main-left main-right";
+                    "main-left main-right"
+                    "bottom-gradient-line bottom-gradient-line"
+                    "bottom-left bottom-right";
                 grid-template-columns: var(--left-column-width);
-                grid-template-rows: min-content min-content 1fr;
+                grid-template-rows: min-content min-content 1fr min-content min-content;
             }
         }
 
@@ -176,14 +179,14 @@
             grid-area: main-left;
             background-color: var(--side-bar-color);
             padding-right: calc(var(--inter-column-padding) / 2);
-            padding-bottom: var(--footer-padding);
+            padding-bottom: var(--bottom-padding);
         }
 
         .outer-container .centered-page .main-right {
             grid-area: main-right;
             background-color: var(--main-background-color);
             padding-left: calc(var(--inter-column-padding) / 2);
-            padding-bottom: var(--footer-padding);
+            padding-bottom: var(--bottom-padding);
         }
 
         .outer-container .centered-page .heading {
@@ -255,6 +258,28 @@
         .outer-container .centered-page .entry-subheading .right {
             flex: 0 1 auto;
             text-align: right;
+        }
+
+        .bottom-gradient-line {
+            grid-area: bottom-gradient-line;
+            height: var(--gradient-line-width);
+            background-image: linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -o-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -moz-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -ms-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0, var(--accent-color-1)), color-stop(1, var(--accent-color-2)));
+        }
+
+        .outer-container .centered-page .bottom-left {
+            grid-area: bottom-left;
+            background-color: var(--side-bar-color);
+            padding-bottom: var(--footer-padding);
+        }
+
+        .outer-container .centered-page .bottom-right {
+            grid-area: bottom-right;
+            background-color: var(--main-background-color);
         }
     </style>
 </head>
@@ -499,6 +524,9 @@
                 htmlToAdd += '</div>';
                 document.write(htmlToAdd)
             </script>
+            <div class="bottom-gradient-line"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
         </div>
         <div class="right-padding"></div>
     </div>
