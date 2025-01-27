@@ -28,7 +28,7 @@
             --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - var(--left-padding-min) - var(--right-padding-min));
             --left-column-width: 2in;
             --inter-column-padding: 36pt;
-            --font-scale: 88%;
+            --font-scale: 85.5%;
             --line-height: 130%;
             /* --primary-font: IBM Plex Sans; */
             --primary-font: Inter;
@@ -182,6 +182,10 @@
             padding-bottom: var(--bottom-padding);
         }
 
+        .outer-container .centered-page .main-right a {
+            color: var(--accent-color-2);
+        }
+
         .outer-container .centered-page .main-right {
             grid-area: main-right;
             background-color: var(--main-background-color);
@@ -282,6 +286,16 @@
             background-color: var(--main-background-color);
         }
     </style>
+    <!-- MATHJAX -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -456,43 +470,69 @@
                         <div class="heading right-heading">Projects</div>
 
                         <div class="entry-heading">
-                            <div class="left">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</div>
+                            <div class="left">
+                                <a href="https://keeganmjgreen.github.io/green_airliner/index.html">
+                                    Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner
+                                </a>
+                            </div>
                             <div class="right">July 2023 &ndash; Present</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Design and <a href="https://keeganmjgreen.github.io/green_airliner/5_feasibility_studies/5_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner</li>
+                            <li>Developed a <a href="https://keeganmjgreen.github.io/green_airliner/7_simulation/7_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs</li>
+                            <li>Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a></li>
                         </ul>
 
                         <div class="entry-heading">
-                            <div class="left">SignalPerfect Python library for signal resampling</div>
+                            <div class="left">
+                                <a href="https://keeganmjgreen.github.io/signal_perfect/">
+                                    SignalPerfect Python library for signal resampling
+                                </a>
+                            </div>
                             <div class="right">July &ndash; Dec 2024</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Derived a special class of quadratic spline for resampling time series data</li>
+                            <li>Used a number of <a href="https://keeganmjgreen.github.io/signal_perfect/performance/">linear algebra computing strategies</a> to reduce complexity from $\\small{O(n^3)}$ to $\\small{O(n)}$</li>
                         </ul>
 
                         <div class="entry-heading">
-                            <div class="left">Series About Energy, Renewables, and Climate Change</div>
+                            <div class="left">
+                                <a href="https://photos.app.goo.gl/wD3Qo23V8P8Yhnq37">
+                                    Series About Energy, Renewables, and Climate Change
+                                </a>
+                            </div>
                             <div class="right">2022 &ndash; Present</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>A series of web postings of interesting, significant, and actionable facts and pieces of information about energy, renewables, and fighting climate change</li>
                         </ul>
 
                         <div class="entry-heading">
-                            <div class="left">Cluedo Game Simulator and AI Assistant</div>
+                            <div class="left">
+                                <a href="https://github.com/keeganmjgreen/python-cluedo">
+                                    Cluedo Game Simulator and AI Assistant
+                                </a>
+                            </div>
                             <div class="right">Feb &ndash; Mar 2023</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem</li>
+                            <li>Made an interactive player dashboard to visualize artifacted game and simulation results</li>
                         </ul>
 
                         <div class="entry-heading">
-                            <div class="left">IoT Integration of a Hydroponic Farm</div>
+                            <div class="left">
+                                <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">
+                                    IoT Integration of a Hydroponic Farm
+                                </a>
+                            </div>
                             <div class="right">Sep 2022 &ndash; Jan 2023</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Created IoT dashboard and Python-based interface for remote monitoring and control</li>
+                            <li>Developed farm process model for minimizing consumption of energy and resources</li>
+                            <li>Completed first phase on-time to successfully control farm across Canada</li>
                         </ul>
 
                         <div class="entry-heading">
@@ -500,7 +540,8 @@
                             <div class="right">Jan &ndash; Feb 2021</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Performed statistical analysis and trained machine learning models on sensor data</li>
+                            <li>Verified, visualized, and reported model performances</li>
                         </ul>
 
                         <div class="entry-heading">
@@ -508,7 +549,9 @@
                             <div class="right">Mar &ndash; May 2020</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Identified potential for optimization among car manufacturers</li>
+                            <li>Defined empirical relationship between fuel cell membrane humidity and performance</li>
+                            <li>Numerically modeled turbo compressor to feed fuel cell oxygen</li>
                         </ul>
 
                         <div class="entry-heading">
@@ -516,7 +559,8 @@
                             <div class="right">Mar &ndash; Apr 2020</div>
                         </div>
                         <ul class="unpadded-list">
-                            <li>TODO</li>
+                            <li>Applications in structural engineering and robotics</li>
+                            <li>Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms</li>
                         </ul>
                         `
                     );
