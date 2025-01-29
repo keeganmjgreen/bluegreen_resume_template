@@ -52,6 +52,7 @@
             --bulleted-item-margin: 6pt;
             --bottom-padding: 18pt;
             --footer-padding: 36pt;
+            --page-number-padding: 6pt;
             --accent-color-1: #155799;
             --accent-color-2: #159957;
             /* Light Mode */
@@ -293,6 +294,8 @@
         .outer-container .centered-page .bottom-right {
             grid-area: bottom-right;
             background-color: var(--main-background-color);
+            padding-top: var(--page-number-padding);
+            text-align: right;
         }
     </style>
     <!-- MATHJAX -->
@@ -575,11 +578,15 @@
                     );
                 }
                 htmlToAdd += '</div>';
+                htmlToAdd += '<div class="bottom-gradient-line"></div>';
+                htmlToAdd += '<div class="bottom-left"></div>';
+                htmlToAdd += '<div class="bottom-right">';
+                if (printPage != 0) {
+                    htmlToAdd += 'Page ' + printPage + ' of 2';
+                }
+                htmlToAdd += '</div>';
                 document.write(htmlToAdd)
             </script>
-            <div class="bottom-gradient-line"></div>
-            <div class="bottom-left"></div>
-            <div class="bottom-right"></div>
         </div>
         <div class="right-padding"></div>
     </div>
