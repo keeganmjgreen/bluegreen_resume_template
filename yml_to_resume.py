@@ -47,14 +47,12 @@ template = template.replace("<!-- name -->", yml["name"])
 template = template.replace("<!-- tagline -->", yml["tagline"])
 for x in ["phone", "email", "location"]:
     template = template.replace(f"<!-- {x} -->", yml[x])
-sidebar_yml = {}
-main_yml = {}
+sections = {}
 for page in pages:
-    sidebar_yml |= yml[f"page_{page}"].get("sidebar", {})
-    main_yml |= yml[f"page_{page}"].get("main", {})
+    sections |= yml[f"page_{page}"]
 sidebar_output = ""
-if sidebar_yml.get("skills_section") is not None:
-    section = SkillsResumeSection(**sidebar_yml["skills_section"])
+if sections.get("skills_section") is not None:
+    section = SkillsResumeSection(**sections["skills_section"])
     sidebar_output += (
         f'<div class="heading left-heading">{section.title}</div>'
         + "".join(
@@ -69,8 +67,8 @@ if sidebar_yml.get("skills_section") is not None:
     )
 template = template.replace("<!-- sidebar -->", sidebar_output)
 main_output = ""
-if main_yml.get("highlights_section") is not None:
-    section = HighlightsResumeSection(**main_yml["highlights_section"])
+if sections.get("highlights_section") is not None:
+    section = HighlightsResumeSection(**sections["highlights_section"])
     main_output += (
         f'<div class="heading right-heading">{section.title}</div>'
         + "<ul>"
@@ -82,8 +80,8 @@ for section_name in [
     "qualifications_section",
     "projects_section",
 ]:
-    if main_yml.get(section_name) is not None:
-        section = ResumeSectionWithEntries(**main_yml[section_name])
+    if sections.get(section_name) is not None:
+        section = ResumeSectionWithEntries(**sections[section_name])
         main_output += (
             f'<div class="heading right-heading">{section.title}</div>'
             + "".join(
