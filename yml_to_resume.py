@@ -13,7 +13,7 @@ parser.add_argument("--template", default="resume_template.html")
 parser.add_argument("--resume-yml", default="bluegreen_resume.yml")
 parser.add_argument("--output", default="resume.html")
 args = parser.parse_args()
-pages = [int(page) for page in args.pages.split(",")]
+page_numbers = [int(page) for page in args.pages.split(",")]
 
 
 class ResumeSection(pydantic.BaseModel, abc.ABC):
@@ -26,7 +26,7 @@ class ResumeSection(pydantic.BaseModel, abc.ABC):
         raise NotImplementedError
 
 
-class SkillsResumeSection(ResumeSection):
+class SkillsSection(ResumeSection):
     name = "skills_section"
 
     content: dict[str, list[str]]
@@ -114,36 +114,36 @@ class ResumeEntry(pydantic.BaseModel):
 
 SingleKeyDict = dict
 
+Region = Literal["sidebar", "main"]
+
+SECTION_CLASSES_BY_REGION: dict[Region, list[ResumeSection]] = {
+    "sidebar": [
+        SkillsSection,
+    ],
+    "main": [
+        HighlightsSection,
+        ExperiencesSection,
+        QualificationsSection,
+        ProjectsSection,
+    ],
+}
 
 yml = yaml.safe_load(Path(args.resume_yml).read_text())
 template = Path(args.template).read_text()
-template = template.replace("<!-- name -->", yml["name"])
-template = template.replace("<!-- tagline -->", yml["tagline"])
-for x in ["phone", "email", "location"]:
-    template = template.replace(f"<!-- {x} -->", yml[x])
+for field in ["name", "tagline", "phone", "email", "location"]:
+    template = template.replace(f"<!-- {field} -->", yml[field])
 sections_yml = {}
-for page in pages:
-    sections_yml |= yml[f"page_{page}"]
-template = template.replace(
-    "<!-- sidebar -->",
-    SkillsResumeSection(**sections_yml["skills_section"]).to_html()
-    if sections_yml.get("skills_section") is not None
-    else "",
-)
-MAIN_SECTIONS: list[ResumeSection] = [
-    HighlightsSection,
-    ExperiencesSection,
-    QualificationsSection,
-    ProjectsSection,
-]
-template = template.replace(
-    "<!-- main -->",
-    "".join(
-        [
-            section_class(**sections_yml[section_class.name]).to_html()
-            for section_class in MAIN_SECTIONS
-            if sections_yml.get(section_class.name) is not None
-        ]
-    ),
-)
+for page_number in page_numbers:
+    sections_yml |= yml[f"page_{page_number}"]
+for region, section_classes in SECTION_CLASSES_BY_REGION.items():
+    template = template.replace(
+        f"<!-- {region} -->",
+        "".join(
+            [
+                section_class(**sections_yml[section_class.name]).to_html()
+                for section_class in section_classes
+                if sections_yml.get(section_class.name) is not None
+            ]
+        ),
+    )
 Path(args.output).write_text(template)
