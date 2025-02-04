@@ -140,8 +140,8 @@ def convert_resume_yml_to_html(
     for field in ["name", "tagline", "phone", "email", "location"]:
         template = template.replace(f"<!-- {field} -->", resume_yml[field])
     sections_yml = {}
-    for page_number in page_numbers:
-        sections_yml |= resume_yml[f"page_{page_number}"]
+    for i in page_numbers:
+        sections_yml |= resume_yml[f"page_{i}"]
     for region, section_classes in SECTION_CLASSES_BY_REGION.items():
         template = template.replace(
             f"<!-- {region} -->",
@@ -153,6 +153,8 @@ def convert_resume_yml_to_html(
                 ]
             ),
         )
+    if page_number is not None:
+        template = template.replace("<!-- footer -->", f"Page {page_number} of 2")
     return template
 
 
