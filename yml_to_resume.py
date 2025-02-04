@@ -3,7 +3,7 @@ from __future__ import annotations
 import abc
 import argparse
 from pathlib import Path
-from typing import Literal
+from typing import ClassVar, Literal
 import pydantic
 import yaml
 
@@ -17,6 +17,8 @@ pages = [int(page) for page in args.pages.split(",")]
 
 
 class ResumeSection(pydantic.BaseModel, abc.ABC):
+    name: ClassVar[str]
+
     title: str
 
     @abc.abstractmethod
@@ -25,6 +27,8 @@ class ResumeSection(pydantic.BaseModel, abc.ABC):
 
 
 class SkillsResumeSection(ResumeSection):
+    name = "skills_section"
+
     content: dict[str, list[str]]
 
     def to_html(self) -> str:
@@ -39,7 +43,9 @@ class SkillsResumeSection(ResumeSection):
         )
 
 
-class HighlightsResumeSection(ResumeSection):
+class HighlightsSection(ResumeSection):
+    name = "highlights_section"
+
     content: list[str]
 
     def to_html(self) -> str:
@@ -53,7 +59,7 @@ class HighlightsResumeSection(ResumeSection):
 
 class ResumeSectionWithEntries(ResumeSection):
     content: list[ResumeEntry]
-    outer_list_css_class: Literal["padded-list", "unpadded-list"] = "unpadded-list"
+    outer_list_css_class: ClassVar[Literal["padded-list", "unpadded-list"]]
 
     def to_html(self) -> str:
         return f'<div class="heading right-heading">{self.title}</div>' + "".join(
@@ -78,15 +84,23 @@ class ResumeSectionWithEntries(ResumeSection):
 
 
 class ExperiencesSection(ResumeSectionWithEntries):
+    name = "experiences_section"
+    outer_list_css_class = "padded-list"
+
     title: str = "Experience"
-    outer_list_css_class: Literal["padded-list"] = "padded-list"
 
 
 class QualificationsSection(ResumeSectionWithEntries):
+    name = "qualifications_section"
+    outer_list_css_class = "unpadded-list"
+
     title: str = "Education"
 
 
 class ProjectsSection(ResumeSectionWithEntries):
+    name = "projects_section"
+    outer_list_css_class = "unpadded-list"
+
     title: str = "Projects"
 
 
@@ -107,26 +121,29 @@ template = template.replace("<!-- name -->", yml["name"])
 template = template.replace("<!-- tagline -->", yml["tagline"])
 for x in ["phone", "email", "location"]:
     template = template.replace(f"<!-- {x} -->", yml[x])
-sections = {}
+sections_yml = {}
 for page in pages:
-    sections |= yml[f"page_{page}"]
-sidebar_output = ""
-if sections.get("skills_section") is not None:
-    sidebar_output += SkillsResumeSection(**sections["skills_section"]).to_html()
-template = template.replace("<!-- sidebar -->", sidebar_output)
-main_output = ""
-if sections.get("highlights_section") is not None:
-    main_output += HighlightsResumeSection(**sections["highlights_section"]).to_html()
-for section_name in [
-    "experiences_section",
-    "qualifications_section",
-    "projects_section",
-]:
-    if sections.get(section_name) is not None:
-        main_output += {
-            "experiences_section": ExperiencesSection,
-            "qualifications_section": QualificationsSection,
-            "projects_section": ProjectsSection,
-        }[section_name](**sections[section_name]).to_html()
-template = template.replace("<!-- main -->", main_output)
+    sections_yml |= yml[f"page_{page}"]
+template = template.replace(
+    "<!-- sidebar -->",
+    SkillsResumeSection(**sections_yml["skills_section"]).to_html()
+    if sections_yml.get("skills_section") is not None
+    else "",
+)
+MAIN_SECTIONS: list[ResumeSection] = [
+    HighlightsSection,
+    ExperiencesSection,
+    QualificationsSection,
+    ProjectsSection,
+]
+template = template.replace(
+    "<!-- main -->",
+    "".join(
+        [
+            section_class(**sections_yml[section_class.name]).to_html()
+            for section_class in MAIN_SECTIONS
+            if sections_yml.get(section_class.name) is not None
+        ]
+    ),
+)
 Path(args.output).write_text(template)
