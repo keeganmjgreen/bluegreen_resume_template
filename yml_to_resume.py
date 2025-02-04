@@ -1,5 +1,8 @@
+from __future__ import annotations
+
 import argparse
 from pathlib import Path
+import pydantic
 import yaml
 
 parser = argparse.ArgumentParser()
@@ -9,6 +12,33 @@ parser.add_argument("--resume-yml", default="bluegreen_resume.yml")
 parser.add_argument("--output", default="resume.html")
 args = parser.parse_args()
 pages = [int(page) for page in args.pages.split(",")]
+
+
+class ResumeSection(pydantic.BaseModel):
+    title: str
+
+
+class SkillsResumeSection(ResumeSection):
+    content: dict[str, list[str]]
+
+
+class HighlightsResumeSection(ResumeSection):
+    content: list[str]
+
+
+SingleKeyDict = dict
+
+
+class ResumeSectionWithEntries(ResumeSection):
+    content: list[ResumeEntry]
+
+
+class ResumeEntry(pydantic.BaseModel):
+    name: str
+    period: str
+    institution: str = ""
+    location: str = ""
+    content: list[str | SingleKeyDict[str, list[str]]]
 
 
 yml = yaml.safe_load(Path(args.resume_yml).read_text())
@@ -23,49 +53,56 @@ for page in pages:
     sidebar_yml |= yml[f"page_{page}"].get("sidebar", {})
     main_yml |= yml[f"page_{page}"].get("main", {})
 sidebar_output = ""
-if skillset_yml := sidebar_yml.get("skillset"):
+if sidebar_yml.get("skills_section") is not None:
+    section = SkillsResumeSection(**sidebar_yml["skills_section"])
     sidebar_output += (
-        f'<div class="heading left-heading">{sidebar_yml["skillset_title"]}</div>'
+        f'<div class="heading left-heading">{section.title}</div>'
         + "".join(
             [
                 f'<div class="entry-heading"><div class="left">{skill_group}</div></div>'
                 + '<ul class="padded-list">'
                 + "".join([f"<li>{skill}</li>" for skill in skills])
                 + "</ul>"
-                for skill_group, skills in skillset_yml.items()
+                for skill_group, skills in section.content.items()
             ]
         )
     )
 template = template.replace("<!-- sidebar -->", sidebar_output)
 main_output = ""
-if highlights := main_yml.get("highlights"):
+if main_yml.get("highlights_section") is not None:
+    section = HighlightsResumeSection(**main_yml["highlights_section"])
     main_output += (
-        f'<div class="heading right-heading">{main_yml["highlights_title"]}</div>'
+        f'<div class="heading right-heading">{section.title}</div>'
         + "<ul>"
-        + "".join([f"<li>{highlight}</li>" for highlight in main_yml["highlights"]])
+        + "".join([f"<li>{highlight}</li>" for highlight in section.content])
         + "</ul>"
     )
-for section_name in ["experiences", "qualifications", "projects"]:
-    if section := main_yml.get(section_name):
+for section_name in [
+    "experiences_section",
+    "qualifications_section",
+    "projects_section",
+]:
+    if main_yml.get(section_name) is not None:
+        section = ResumeSectionWithEntries(**main_yml[section_name])
         main_output += (
-            f'<div class="heading right-heading">{main_yml[f"{section_name}_title"]}</div>'
+            f'<div class="heading right-heading">{section.title}</div>'
             + "".join(
                 [
-                    f'<div class="entry-heading"><div class="left">{item["name"]}</div><div class="right">{item["period"]}</div></div>'
+                    f'<div class="entry-heading"><div class="left">{entry.name}</div><div class="right">{entry.period}</div></div>'
                     + (
-                        f'<div class="entry-subheading"><div class="left">{item["institution"]}</div><div class="right">{item["location"]}</div></div>'
-                        if item.get("institution") and item.get("location")
+                        f'<div class="entry-subheading"><div class="left">{entry.institution}</div><div class="right">{entry.location}</div></div>'
+                        if entry.institution or entry.location
                         else ""
                     )
-                    + f'<ul class="{"padded" if section_name == "experiences" else "unpadded"}-list">'
+                    + f'<ul class="{"padded" if section_name == "experiences_section" else "unpadded"}-list">'
                     + "".join(
                         [
                             f"<li>{x if type(x) is str else list(x.keys())[0] + f'<ul class="unpadded-list">{"".join([f"<li>{v}</li>" for v in list(x.values())[0]])}</ul>'}</li>"
-                            for x in item["content"]
+                            for x in entry.content
                         ]
                     )
                     + "</ul>"
-                    for item in section
+                    for entry in section.content
                 ]
             )
         )
