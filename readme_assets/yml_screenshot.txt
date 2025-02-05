@@ -1,0 +1,13 @@
+name: Keegan Green
+tagline: Motivated &middot; Adaptable &middot; Dependable
+phone: (778) 237-5533
+email: keeganmjgreen@gmail.com
+location: Ottawa, ON
+page_1:
+  skills_section:
+    title: Skillset
+    content:
+      Software/Engineering:
+        - <strong>Optimization</strong> &middot; Pyomo, C
+        - <strong>Python</strong> &middot; Pandas, NumPy,
+        - Basic Java

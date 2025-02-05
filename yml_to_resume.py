@@ -125,7 +125,7 @@ SECTION_CLASSES_BY_REGION: dict[Region, list[ResumeSection]] = {
 
 def parse_cli_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--template", default="resume_template.html")
+    parser.add_argument("--template", default="bluegreen_resume_template.html")
     parser.add_argument("--resume-yml", default="bluegreen_resume.yml")
     parser.add_argument("--page-number", type=int, default=None)
     parser.add_argument("--output", default="resume.html")

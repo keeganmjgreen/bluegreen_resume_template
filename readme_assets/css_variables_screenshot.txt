@@ -1,0 +1,13 @@
+    <!-- CSS STYLES -->
+    <style>
+        :root {
+            --scale-factor-for-printing-to-pdf: 0.9;
+            --left-padding-min: 36pt;
+            --right-padding-min: var(--left-padding-min);
+            --mobile-left-padding-min: 18pt;
+            --mobile-right-padding-min: 36pt;
+            --left-column-width: 2in;
+            --inter-column-padding: 36pt;
+            --font-scale: 85.5%;
+            --line-height: 130%;
+            /* And many more...! */

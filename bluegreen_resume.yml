@@ -1,119 +1,71 @@
-name: Keegan Green
-tagline: Motivated &middot; Adaptable &middot; Dependable
-phone: (778) 237-5533
-email: keeganmjgreen@gmail.com
-location: Ottawa, ON
+# Note: Inline HTML (formatting, hyperlinks, special characters, etc.) is supported.
+name: "name"
+tagline: "tagline"
+phone: "phone"
+email: "email"
+location: "location"
 page_1:
   skills_section:
     title: Skillset
     content:
-      Software/Engineering:
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy
-        - Basic Java
-        - Basic Go
-        - MATLAB/Simulink and Optimization Toolbox
-        - Git
-        - Linux
-        - Docker
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
-      Electrical Systems:
-        - Power and signal electronics analysis
-        - Digital design
-        - Microcontrollers and single-board computers
-        - Real-time systems
+      "a skill group":
+        - "a skill"
+        - "another skill"
+      "another skill group":
+        - "yet another skill"
   highlights_section:
     title: What I&rsquo;m Great At
     content:
-      - End-to-end problem solving, from conception to deployment
-      - Creating reusable, well-documented software
-      - Considering all aspects of a problem, from technical to green energy implications
+      - "a highlight"
+      - "another highlight"
+      - "yet another highlight"
   experiences_section:
     title: Experience
     content:
-      - name: Optimization Engineer
-        period: 2024 &ndash; Present
-        institution: BluWave~ai
-        location: Ottawa, ON
+      - name: "role"
+        period: "start &ndash; end"
+        institution: "company"
+        location: "location"
         content:
-          - ? Developed, deployed, and maintained an optimization service that performs city-wide demand response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
-            : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is sufficiently green
-          - ? Developed and deployed an optimizer that sends timely and helpful charging site recommendations to Dubai Taxi EV drivers
-            : - Created a real-time simulator of EV taxi fleet operations, showcased at COP28, which helped to progress the pilot project with Dubai Taxi to the next stage
-          - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
-            : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for Ontario&rsquo;s 11 Roxborough school bus depots
-          - Developed software to smooth the power input to a solar-powered hydrogen generation and storage system, thereby extending its lifespan
-          - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments.
-          - Created, evaluated, and deployed an estimator of peak power consumption to improve the accuracy of a predictor pipeline for Mumbai&rsquo;s city load
-          - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s
-          - Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system
-          - Co-inventor on a patent application for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
-      - name: Systems Engineering Co-op
-        period: Sep &ndash; Dec 2020
-        institution: Jastram Engineering
-        location: Vancouver, BC
+          - "a bullet point"
+          - ? "a bullet point with children"
+            : - "a child bullet point"
+              - "another child bullet point"
+      - name: "another role"
+        period: "start &ndash; end"
+        institution: "another company"
+        location: "location"
         content:
-          - "For steering systems on naval frigates:":
-              - Developed documentation for security, safety, risk management, and failure analysis
-              - Verified conformance of electrical systems to NATO standardization agreement
-              - Successfuly performed vibration analysis for hydraulic power units in Python
+          - "a bullet point"
+          - "another bullet point"
 page_2:
   qualifications_section:
     title: Education
     content:
-      - name: BASc Mechatronic Systems Engineering
-        period: 2016 &ndash; 2021
-        institution: Simon Fraser University
-        location: Vancouver, BC
+      - name: "degree"
+        period: "start &ndash; end"
+        institution: "institution"
+        location: "location"
         content:
-          - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
+          - "a bullet point"
+          - "another bullet point"
+      - name: "another degree"
+        period: "start &ndash; end"
+        institution: "institution"
+        location: "location"
+        content:
+          - "a bullet point"
+          - "another bullet point"
   projects_section:
     title: Projects
     content:
-      - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
-        period: July 2023 &ndash; Present
+      - name: "project"
+        period: "start &ndash; end"
         content:
-          - Design and <a href="https://keeganmjgreen.github.io/green_airliner/5_feasibility_studies/5_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
-          - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/7_simulation/7_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
-          - Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a>
-      - name: <a href="https://keeganmjgreen.github.io/signal_perfect/">SignalPerfect Python library for signal resampling</a>
-        period: July &ndash; Dec 2024
+          - "a bullet point"
+          - "another bullet point"
+      - name: "another project"
+        period: "start &ndash; end"
         content:
-          - Derived a special class of quadratic spline for resampling time series data
-          - Used a number of <a href="https://keeganmjgreen.github.io/signal_perfect/performance/">linear algebra computing strategies</a> to reduce complexity from <i>O</i>(<i>n</i>&#179;) to <i>O</i>(<i>n</i>)
-      - name: <a href="https://photos.app.goo.gl/wD3Qo23V8P8Yhnq37">Series About Energy, Renewables, and Climate Change</a>
-        period: 2022 &ndash; Present
-        content:
-          - A series of web postings of interesting, significant, and actionable facts and pieces of information about energy, renewables, and fighting climate change
-      - name: <a href="https://github.com/keeganmjgreen/python-cluedo">Cluedo Game Simulator and AI Assistant</a>
-        period: Feb &ndash; Mar 2023
-        content:
-          - Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem
-          - Made an interactive player dashboard to visualize artifacted game and simulation results
-      - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
-        period: Sep 2022 &ndash; Jan 2023
-        content:
-          - Created IoT dashboard and Python-based interface for remote monitoring and control
-          - Developed farm process model for minimizing consumption of energy and resources
-          - Completed first phase on-time to successfully control farm across Canada
-      - name: Energy Yield Model of a Gas Turbine
-        period: Jan &ndash; Feb 2021
-        content:
-          - Performed statistical analysis and trained machine learning models on sensor data
-          - Verified, visualized, and reported model performances
-      - name: Model of Fuel Cell EV Air Supply System for Optimization
-        period: Mar &ndash; May 2020
-        content:
-          - Identified potential for optimization among car manufacturers
-          - Defined empirical relationship between fuel cell membrane humidity and performance
-          - Numerically modeled turbo compressor to feed fuel cell oxygen
-      - name: Optimization of a Telescopic Handler Mechanism
-        period: Mar &ndash; Apr 2020
-        content:
-          - Applications in structural engineering and robotics
-          - Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms
+          - "a bullet point"
+          - "another bullet point"
