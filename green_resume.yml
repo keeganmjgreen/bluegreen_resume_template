@@ -7,7 +7,7 @@ page_1:
   skills_section:
     title: Skillset
     content:
-      Software/Engineering:
+      Software Engineering:
         - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
         - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy
         - Basic Java
@@ -40,16 +40,16 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Developed, deployed, and maintained an optimization service that performs city-wide demand response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
-            : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is sufficiently green
+          - ? Developed, deployed, and maintained an optimization service to perform city-wide demand response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
+            : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - ? Developed and deployed an optimizer that sends timely and helpful charging site recommendations to Dubai Taxi EV drivers
             : - Created a real-time simulator of EV taxi fleet operations, showcased at COP28, which helped to progress the pilot project with Dubai Taxi to the next stage
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for Ontario&rsquo;s 11 Roxborough school bus depots
-          - Developed software to smooth the power input to a solar-powered hydrogen generation and storage system, thereby extending its lifespan
+          - Developed software to smooth the power input to a solar-powered hydrogen generation and storage system, to extend its lifespan
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments.
-          - Created, evaluated, and deployed an estimator of peak power consumption to improve the accuracy of a predictor pipeline for Mumbai&rsquo;s city load
-          - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s
+          - Created, evaluated, and deployed an estimator of peak power consumption to improve the accuracy of a predictor for Mumbai&rsquo;s city load
+          - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s grid
           - Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system
           - Co-inventor on a patent application for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
       - name: Systems Engineering Co-op
