@@ -1,0 +1,7 @@
+name: bluegreen_resume_template
+dependencies:
+  - pip=25.0
+  - python=3.13.2
+  - pip:
+      - pydantic==2.10.6
+      - PyYAML==6.0.2
