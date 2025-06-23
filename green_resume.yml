@@ -79,8 +79,8 @@ page_2:
       - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
         period: July 2023 &ndash; Present
         content:
-          - Design and <a href="https://keeganmjgreen.github.io/green_airliner/5_feasibility_studies/5_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
-          - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/7_simulation/7_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
+          - Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
+          - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
           - Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a>
       - name: <a href="https://keeganmjgreen.github.io/signal_perfect/">SignalPerfect Python library for signal resampling</a>
         period: July &ndash; Dec 2024
