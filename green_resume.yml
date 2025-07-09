@@ -49,7 +49,7 @@ page_1:
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for Ontario&rsquo;s 11 Roxborough school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
-          - Created, evaluated, and deployed an estimator of peak power consumption to improve the accuracy of a predictor for Mumbai&rsquo;s city load
+          - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
           - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s grid
           - Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system
           - Co-inventor on a patent application for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
