@@ -4,7 +4,7 @@ import abc
 import argparse
 from copy import deepcopy
 from pathlib import Path
-from typing import ClassVar, Literal
+from typing import Any, ClassVar, Literal
 
 import pydantic
 import yaml
@@ -133,7 +133,7 @@ def parse_cli_args() -> argparse.Namespace:
 
 
 def convert_resume_yml_to_html(
-    template: str, resume_yml: str, page_number: int | None = None
+    template: str, resume_yml: dict[str, Any], page_number: int | None = None
 ) -> str:
     page_numbers = [1, 2] if page_number is None else [page_number]
     template = deepcopy(template)
