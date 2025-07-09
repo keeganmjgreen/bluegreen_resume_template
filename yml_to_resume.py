@@ -23,16 +23,23 @@ class ResumeSection(pydantic.BaseModel, abc.ABC):
 class SkillsSection(ResumeSection):
     name = "skills_section"
 
-    content: dict[str, list[str]]
+    content: list[str] | dict[str, list[str]]
 
     def to_html(self) -> str:
+        content = (
+            self.content if isinstance(self.content, dict) else {None: self.content}
+        )
         return f'<div class="heading left-heading">{self.title}</div>' + "".join(
             [
-                f'<div class="entry-heading"><div class="left">{skill_group_name}</div></div>'
+                (
+                    f'<div class="entry-heading"><div class="left">{skill_group_name}</div></div>'
+                    if skill_group_name
+                    else ""
+                )
                 + '<ul class="padded-list">'
                 + "".join([f"<li>{skill}</li>" for skill in skills])
                 + "</ul>"
-                for skill_group_name, skills in self.content.items()
+                for skill_group_name, skills in content.items()
             ]
         )
 
