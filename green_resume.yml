@@ -5,34 +5,24 @@ email: keeganmjgreen@gmail.com
 location: Ottawa, ON
 page_1:
   skills_section:
-    title: Skillset
+    title: Software Skills
     content:
-      Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
-        - Git
-        - Linux
-        - Docker
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-        - MLflow
-        - Basic Java
-        - Basic Go
-        - MATLAB/Simulink and Optimization Toolbox
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
-      Electrical Systems:
-        - Power and signal electronics analysis
-        - Digital design
-        - Microcontrollers and single-board computers
-        - Real-time systems
+      - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
+      - Relational databases (PostgreSQL) <br> and ORMs
+      - Docker
+      - Machine learning
+      - Git
+      - Jenkins-based CI/CD
+      - Linux
+      - Grafana
+      - Basic Java
+      - Basic Go
   highlights_section:
     title: What I&rsquo;m Great At
     content:
       - End-to-end problem solving, from conception to deployment
-      - Creating reusable, well-documented software
-      - Considering all aspects of a problem, from technical to green energy implications
+      - Creating beautiful, well-tested, and fast software
+      - Considering all aspects of a problem, from technical to environmental implications
   experiences_section:
     title: Experience
     content:
@@ -41,27 +31,19 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Developed, deployed, and maintained an optimization service to perform city-wide demand response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
-            : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
-          - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
-          - ? Developed and deployed an optimizer that sends timely and helpful charging site recommendations to Dubai Taxi EV drivers
-            : - Created a real-time simulator of EV taxi fleet operations, showcased at COP28, essential to progressing the pilot project with Dubai Taxi to the next stage
-          - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
-            : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for Ontario&rsquo;s 11 Roxborough school bus depots
-          - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
-          - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s grid
+          - Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation, leveraging GTFS schedule data:
+              - Created optimization models for minimizing energy use and cost, used in a simulation study for Ontario&rsquo;s 11 Roxborough school bus depots
+              - Set up streaming of GTFS realtime data into a local database
+          - Created, evaluated, and deployed novel pipelines for predicting the load of Mumbai and Prince Edward Island electrical grids (outperforming the baseline model by 17%):
+              - Developed an SFTP data ingestion pipeline using Apache NiFi
+          - Developed and deployed an optimizer that sends timely and helpful charging site recommendations to EV taxi drivers based on location:
+              - Created a real-time simulator of EV taxi fleet operations, showcased at COP28, essential to progressing the pilot project with the taxi company to the next stage
+          - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments, using HTTP endpoints for communication
+          - Developed, deployed, and maintained an optimization service to reduce strain on the city's electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing program with Hydro Ottawa:
+              - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green, thereby reducing emissions
+          - Developed and deployed a pipeline to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system
           - Co-inventor on a patent application for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
-      - name: Systems Engineering Co-op
-        period: Sep &ndash; Dec 2020
-        institution: Jastram Engineering
-        location: Vancouver, BC
-        content:
-          - "For steering systems on naval frigates:":
-              - Developed documentation for security, safety, risk management, and failure analysis
-              - Verified conformance of electrical systems to NATO standardization agreement
-              - Successfuly performed vibration analysis for hydraulic power units in Python
 page_2:
   qualifications_section:
     title: Education
@@ -72,12 +54,12 @@ page_2:
         location: Vancouver, BC
         content:
           - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
+          - 4.33 GPA in statistics and optimization courses
   projects_section:
-    title: Projects
+    title: Personal Projects
     content:
       - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
-        period: July 2023 &ndash; Present
+        period: 2023 &ndash; Present
         content:
           - Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
           - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
@@ -95,11 +77,11 @@ page_2:
         period: Feb &ndash; Mar 2023
         content:
           - Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem
-          - Made an interactive player dashboard to visualize artifacted game and simulation results
+          - Made an interactive player dashboard to visualize game and simulation results
       - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
         period: Sep 2022 &ndash; Jan 2023
         content:
-          - Created IoT dashboard and Python-based interface for remote monitoring and control
+          - Created IoT dashboard and Python-based interface for remote monitoring & control
           - Developed farm process model for minimizing consumption of energy and resources
           - Completed first phase on-time to successfully control farm across Canada
       - name: Energy Yield Model of a Gas Turbine
@@ -111,10 +93,5 @@ page_2:
         period: Mar &ndash; May 2020
         content:
           - Identified potential for optimization among car manufacturers
-          - Defined empirical relationship between fuel cell membrane humidity and performance
+          - Defined empirical relationship between fuel cell humidity and performance
           - Numerically modeled turbo compressor to feed fuel cell oxygen
-      - name: Optimization of a Telescopic Handler Mechanism
-        period: Mar &ndash; Apr 2020
-        content:
-          - Applications in structural engineering and robotics
-          - Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms
