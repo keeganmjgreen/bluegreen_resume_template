@@ -44,6 +44,7 @@
             --header-padding-bottom: 18pt;
             --gradient-line-width: 4pt;
             --heading-font: IBM Plex Mono;
+            --heading-letterspacing: 2pt;
             --heading-margin-top: 18pt;
             --heading-margin-bottom: 6pt;
             --entry-heading-margin-top: 12pt;
@@ -205,7 +206,7 @@
 
         .outer-container .centered-page .heading {
             text-transform: uppercase;
-            letter-spacing: 2pt;
+            letter-spacing: var(--heading-letterspacing);
             font-family: var(--heading-font);
             padding-top: var(--heading-margin-top);
             margin-bottom: var(--heading-margin-bottom);
