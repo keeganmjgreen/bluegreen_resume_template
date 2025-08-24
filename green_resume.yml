@@ -100,7 +100,7 @@ page_2:
       - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
         period: 2022 &ndash; 2023
         content:
-          - Created IoT dashboard and Python-based interface for remote monitoring & control
+          - Created an IoT dashboard and Python-based interface for remote monitoring & control
           - Developed a farm process model for minimizing consumption of energy and resources
           - Completed the first phase on-time to successfully control the farm across Canada
       - name: Energy Yield Model of a Gas Turbine
