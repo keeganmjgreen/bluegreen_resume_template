@@ -47,7 +47,7 @@ page_1:
             : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
-            : - Created a real-time simulator of EV taxi fleet operations, showcased at COP28, essential to progressing the pilot project with the taxi company to the next stage
+            : - Created a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a>, essential to progressing the pilot project with the taxi company to the next stage
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
