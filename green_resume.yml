@@ -43,7 +43,7 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Developed, deployed, and maintained an optimization service to perform city-wide demand response by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
+          - ? Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
             : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
