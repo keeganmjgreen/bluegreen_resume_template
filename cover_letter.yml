@@ -1,12 +1,12 @@
-name: "name"
-tagline: "tagline"
-phone: "phone"
-email: "email"
-location: "location"
+name: Keegan Green
+tagline: Motivated &middot; Adaptable &middot; Dependable
+phone: (778) 237-5533
+email: keeganmjgreen@gmail.com
+location: Ottawa, ON
 page_1:
   paragraph_section:
     content:
       - Hello,
-      - your-cover-letter-content
+      - ...
       - Looking forward to hearing from you,
-      - your-name
+      - Keegan Green
