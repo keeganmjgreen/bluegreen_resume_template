@@ -12,7 +12,7 @@ Get your next **cleantech** role.
 
 ## Getting started
 
-1. Fill in the `bluegreen_resume.yml` template with your resume details.
+1. Fill in the `resume.yml` template with your resume details.
 2. Customize the CSS variables in `bluegreen_resume_template.html` to your liking.
 3. Run `build_resume.sh` to generate a portable HTML resume (`resume.html`) and a two-page resume PDF (`resume.pdf`) of equal quality. This requires:
    - python>=3.10
