@@ -1,0 +1,12 @@
+name: "name"
+tagline: "tagline"
+phone: "phone"
+email: "email"
+location: "location"
+page_1:
+  paragraph_section:
+    content:
+      - Hello,
+      - your-cover-letter-content
+      - Looking forward to hearing from you,
+      - your-name
