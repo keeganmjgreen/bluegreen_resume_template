@@ -5,30 +5,17 @@ email: keeganmjgreen@gmail.com
 location: Ottawa, ON
 page_1:
   skills_section:
-    title: Skillset
+    title: Software Skills
     content:
-      Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
-        - Go
-        - Git
-        - Linux
-        - Docker
-        - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-        - Machine learning
-        - MLflow
-        - Basic Java
-        - MATLAB/Simulink and Optimization Toolbox
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
-      Electrical Systems:
-        - Power and signal electronics analysis
-        - Digital design
-        - Microcontrollers and single-board computers
-        - Real-time systems
+      - <strong>Python</strong> &middot; NumPy, SciPy, scikit-learn, Pandas, GeoPandas, Shapely, Kedro, SQLAlchemy, Pydantic, pytest
+      - Machine learning
+      - MLflow
+      - Git
+      - Linux
+      - Docker
+      - CI/CD
+      - Relational databases (PostgreSQL) <br> and ORMs
+      - Grafana
   highlights_section:
     title: Where I Excel
     content:
@@ -43,27 +30,19 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
+          - ? Created, evaluated, and deployed novel load predictors for Prince Edward Island and Mumbai, which outperformed the baseline by 17%
+            : - By helping utilities purchase green energy in advance, this is a tool for reducing emissions
+          - Created a data ingestion pipeline to get hourly updates on how much power Prince Edward Island is consuming and generating from wind and solar, to feed ML inference
+          - ? Developed and deployed an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
             : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
-            : - Created a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a>, essential to progressing the pilot project with the taxi company to the next stage
+            : - Helped progress the pilot project with the taxi company to the next stage by using GeoPandas to create a real-time simulator of EV taxi fleet operations that was showcased at <a href="https://www.cop28.com/en/">COP28</a>
+              - Made an interactive tool using Plotly, OpenStreetMap, and the Google Maps API to help automate the process of finding and categorizing charging stations
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
-            : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
+            : - Created optimization models for peak energy use and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
-          - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-megawatt peak-shaving study for the city of St. John&rsquo;s grid
-          - Co-inventor on three patent applications for BluWave&rsquo;s EV Fleet Orchestrator system
-          - Co-inventor on a patent application for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
-      - name: Systems Engineering Co-op
-        period: Sep &ndash; Dec 2020
-        institution: Jastram Engineering
-        location: Vancouver, BC
-        content:
-          - "For steering systems on naval frigates:":
-              - Developed documentation for security, safety, risk management, and failure analysis
-              - Verified conformance of electrical systems to NATO standardization agreement
-              - Successfully performed vibration analysis for hydraulic power units in Python
+          - Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
 page_2:
   qualifications_section:
     title: Education
@@ -74,7 +53,6 @@ page_2:
         location: Vancouver, BC
         content:
           - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
   projects_section:
     title: Personal Projects
     content:
@@ -82,7 +60,7 @@ page_2:
         period: 2023 &ndash; Present
         content:
           - Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
-          - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
+          - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by cargo UAVs, using map data and realistic flight paths
           - Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a>
       - name: Author of multiple Python libraries
         period: 2024 &ndash; Present
@@ -111,11 +89,6 @@ page_2:
       - name: Model of Fuel Cell EV Air Supply System for Optimization
         period: "2020"
         content:
-          - Identified potential for optimization among car manufacturers
-          - Defined empirical relationship between fuel cell humidity and performance
+          - Identified the potential for optimization among car manufacturers
+          - Defined an empirical relationship between fuel cell humidity and performance
           - Numerically modeled turbo compressor to feed fuel cell oxygen
-      - name: Optimization of a Telescopic Handler Mechanism
-        period: "2020"
-        content:
-          - Applications in structural engineering and robotics
-          - Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms
