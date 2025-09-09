@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- AVOID SHRINKING FLEXBOX TEXT ON MOBILE -->
+    <meta name="viewport" content="width=device-width">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- CSS STYLES -->
+    <style>
+        :root {
+            /* CONSTANTS */
+            --us-letter-page-width: 8.5in;
+            --us-letter-page-height: 11in;
+            /* VARIABLES */
+            --scale-factor-for-printing-to-pdf: 0.9;
+            --left-padding-min: 36pt;
+            --right-padding-min: var(--left-padding-min);
+            --mobile-left-padding-min: 18pt;
+            --mobile-right-padding-min: 36pt;
+            /* Set the max width of the centered page such that, when printing to a US Letter PDF with the
+               given scale factor, the main column will have the same character width as on-screen. */
+            --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - var(--left-padding-min) - var(--right-padding-min));
+            --left-column-width: 2in;
+            --inter-column-padding: 36pt;
+            --font-scale: 85.5%;
+            --line-height: 135%;
+            /* --primary-font: IBM Plex Sans; */
+            --primary-font: Inter;
+            --header-padding-top: 18pt;
+            --info-item-margin: 2pt;
+            --title-font: var(--primary-font);
+            --title-font-size: xxx-large;
+            --title-letterspacing: 2pt;
+            --subtitle-margin-top: 2pt;
+            --subtitle-font: var(--primary-font);
+            --subtitle-font-size: medium;
+            --subtitle-letterspacing: 1.6pt;
+            --header-padding-bottom: 18pt;
+            --gradient-line-width: 4pt;
+            --heading-font: IBM Plex Mono;
+            --heading-letterspacing: 2pt;
+            --heading-margin-top: 18pt;
+            --heading-margin-bottom: 6pt;
+            --entry-heading-margin-top: 12pt;
+            --entry-subheading-margin-top: 1pt;
+            --entry-subheading-margin-bottom: 8pt;
+            --bulleted-item-margin: 6pt;
+            --bottom-padding: 18pt;
+            --footer-padding: 36pt;
+            --page-number-padding: 6pt;
+            --accent-color-1: #155799;
+            --accent-color-2: #159957;
+            /* Light Mode */
+            --main-background-color: #ffffff;
+            --side-bar-color: #eeeeee;
+            --text-color: #000000;
+        }
+
+        @media print {
+            @page {
+                margin: 0;
+            }
+            body {
+                zoom: 0.9;
+            }
+        }
+
+        @media only screen and (prefers-color-scheme: dark) {
+            :root {
+                /* Dark Mode */
+                --main-background-color: #000000;
+                --side-bar-color: #111111;
+                --text-color: #cccccc;
+            }
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--main-background-color);
+            line-height: var(--line-height);
+            font-size: var(--font-scale);
+            font-family: var(--primary-font);
+            color: var(--text-color);
+        }
+
+        .outer-container {
+            min-height: calc(max(100vh, var(--us-letter-page-height) / var(--scale-factor-for-printing-to-pdf)));
+            display: flex;
+            flex-direction: row;
+        }
+
+        .outer-container .left-padding {
+            flex: 1 0 var(--left-padding-min);
+            background-color: var(--side-bar-color);
+        }
+
+        .outer-container .right-padding {
+            flex: 1 0 var(--right-padding-min);
+            background-color: var(--main-background-color);
+        }
+
+        .outer-container .centered-page {
+            flex: 0 1 var(--centered-page-width-max);
+        }
+
+        @media (max-width: 723px) {
+            :root {
+                --left-padding-min: var(--mobile-left-padding-min);
+                --right-padding-min: var(--mobile-right-padding-min);
+            }
+        }
+
+        @media (min-width: 724px) {
+            .outer-container .centered-page {
+                display: grid;
+                grid-template-areas:
+                    "top-left top-right"
+                    "gradient-line gradient-line"
+                    "main-left main-right"
+                    "bottom-gradient-line bottom-gradient-line"
+                    "bottom-left bottom-right";
+                grid-template-columns: var(--left-column-width);
+                grid-template-rows: min-content min-content 1fr min-content min-content;
+            }
+        }
+
+        .outer-container .centered-page ul.top-left {
+            grid-area: top-left;
+            background-color: var(--side-bar-color);
+            padding-top: var(--header-padding-top);
+            padding-right: calc(var(--inter-column-padding) / 2);
+            align-content: center;
+            margin-top: 0;
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            padding-bottom: var(--header-padding-bottom);
+        }
+
+        .outer-container .centered-page ul.top-left li:not(:first-child):not(:last-child) {
+            margin-top: var(--info-item-margin);
+            margin-bottom: var(--info-item-margin);
+        }
+
+        .outer-container .centered-page .top-right {
+            grid-area: top-right;
+            background-color: var(--main-background-color);
+            padding-top: var(--header-padding-top);
+            padding-left: calc(var(--inter-column-padding) / 2);
+            align-content: center;
+            padding-bottom: var(--header-padding-bottom);
+        }
+
+        .outer-container .centered-page .top-right .title {
+            line-height: 100%;
+            font-family: var(--title-font);
+            font-size: var(--title-font-size);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: var(--title-letterspacing);
+        }
+
+        .outer-container .centered-page .top-right .subtitle {
+            margin-top: var(--subtitle-margin-top);
+            font-family: var(--subtitle-font);
+            font-size: var(--subtitle-font-size);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: var(--subtitle-letterspacing);
+        }
+
+        .gradient-line {
+            grid-area: gradient-line;
+            height: var(--gradient-line-width);
+            background-image: linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -o-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -moz-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -ms-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0, var(--accent-color-1)), color-stop(1, var(--accent-color-2)));
+        }
+
+        .outer-container .centered-page .main-left {
+            grid-area: main-left;
+            background-color: var(--side-bar-color);
+            padding-right: calc(var(--inter-column-padding) / 2);
+            padding-bottom: var(--bottom-padding);
+        }
+
+        .outer-container .centered-page .main-right a {
+            color: var(--accent-color-2);
+        }
+
+        .outer-container .centered-page .main-right {
+            grid-area: main-right;
+            background-color: var(--main-background-color);
+            padding-left: calc(var(--inter-column-padding) / 2);
+            padding-bottom: var(--bottom-padding);
+        }
+
+        .outer-container .centered-page .heading {
+            text-transform: uppercase;
+            letter-spacing: var(--heading-letterspacing);
+            font-family: var(--heading-font);
+            padding-top: var(--heading-margin-top);
+            margin-bottom: var(--heading-margin-bottom);
+        }
+
+        .outer-container .centered-page .heading.left-heading:after {
+            margin-top: var(--heading-margin-bottom);
+            content: "";
+            display: block;
+            border: 1pt solid var(--accent-color-1);
+        }
+
+        .outer-container .centered-page .heading.right-heading:after {
+            margin-top: var(--heading-margin-bottom);
+            content: "";
+            display: block;
+            border: 1pt solid var(--accent-color-2);
+        }
+
+        .outer-container .centered-page ul {
+            margin-top: var(--bulleted-item-margin);
+            margin-bottom: 0;
+            padding-left: 1.75em;
+            list-style-type: disc;
+        }
+
+        .outer-container .centered-page ul.padded-list li {
+            margin-top: var(--bulleted-item-margin);
+            margin-bottom: var(--bulleted-item-margin);
+        }
+
+        .outer-container .centered-page ul.unpadded-list li {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .outer-container .centered-page .entry-heading {
+            display: flex;
+            margin-top: var(--entry-heading-margin-top);
+        }
+
+        .outer-container .centered-page .entry-heading .left {
+            flex: 1 1 auto;
+            margin-right: 12pt;
+            font-weight: bold;
+        }
+
+        .outer-container .centered-page .entry-heading .right {
+            flex: 0 1 auto;
+            text-align: right;
+        }
+
+        .outer-container .centered-page .entry-subheading {
+            display: flex;
+            margin-top: var(--entry-subheading-margin-top);
+            margin-bottom: var(--entry-subheading-margin-bottom);
+        }
+
+        .outer-container .centered-page .entry-subheading .left {
+            flex: 1 1 auto;
+            margin-right: 12pt;
+            font-style: italic;
+        }
+
+        .outer-container .centered-page .entry-subheading .right {
+            flex: 0 1 auto;
+            text-align: right;
+        }
+
+        .bottom-gradient-line {
+            grid-area: bottom-gradient-line;
+            height: var(--gradient-line-width);
+            background-image: linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -o-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -moz-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -ms-linear-gradient(left, var(--accent-color-1) 0%, var(--accent-color-2) 100%);
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0, var(--accent-color-1)), color-stop(1, var(--accent-color-2)));
+        }
+
+        .outer-container .centered-page .bottom-left {
+            grid-area: bottom-left;
+            background-color: var(--side-bar-color);
+            padding-bottom: var(--footer-padding);
+        }
+
+        .outer-container .centered-page .bottom-right {
+            grid-area: bottom-right;
+            background-color: var(--main-background-color);
+            padding-top: var(--page-number-padding);
+            text-align: right;
+        }
+    </style>
+    <!-- MATHJAX -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+</head>
+
+<body>
+    <div class="outer-container">
+        <div class="left-padding"></div>
+        <div class="centered-page">
+            <ul class="top-left">
+                <li>(778) 237-5533</li>
+                <li style="font-size: small; margin-top: -1pt;"><a style="color: var(--text-color);" href="mailto:keeganmjgreen@gmail.com">keeganmjgreen@gmail.com</a></li>
+                <li>Ottawa, ON</li>
+            </ul>
+            <div class="top-right">
+                <div class="title">Keegan Green</div>
+                <div class="subtitle">Motivated &middot; Adaptable &middot; Dependable</div>
+            </div>
+            <div class="gradient-line"></div>
+            <div class="main-left"><div class="heading left-heading">Skillset</div><div class="entry-heading"><div class="left">Software Engineering</div></div><ul class="padded-list"><li><strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest</li><li><strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK</li><li>Go</li><li>Git</li><li>Linux</li><li>Docker</li><li>CI/CD</li><li>Relational databases (PostgreSQL) <br> and ORMs</li><li>Grafana</li><li>Machine learning</li><li>MLflow</li><li>Basic Rust</li><li>Basic Java</li><li>MATLAB/Simulink and Optimization Toolbox</li></ul><div class="entry-heading"><div class="left">Control Systems</div></div><ul class="padded-list"><li>Modern optimal and digital control</li><li>Modeling and simulation</li></ul><div class="entry-heading"><div class="left">Electrical Systems</div></div><ul class="padded-list"><li>Power and signal electronics analysis</li><li>Digital design</li><li>Microcontrollers and single-board computers</li><li>Real-time systems</li></ul></div>
+            <div class="main-right"><div class="heading right-heading">Where I Excel</div><ul><li>Showing initiative in end-to-end problem solving, from conception to deployment</li><li>Creating reusable, well-tested, and fast software</li><li>Considering all aspects of a problem, from technical to green energy implications</li></ul><div class="heading right-heading">Experience</div><div class="entry-heading"><div class="left">Optimization Engineer</div><div class="right">2022 &ndash; Present</div></div><div class="entry-subheading"><div class="left">BluWave~ai</div><div class="right">Ottawa, ON</div></div><ul class="padded-list"><li>Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa<ul class="unpadded-list"><li>Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green</li></ul></li><li>Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times</li><li>Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location<ul class="unpadded-list"><li>Helped progress the pilot project with the taxi company to the next stage by creating a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a></li></ul></li><li>Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation<ul class="unpadded-list"><li>Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots</li></ul></li><li>Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments</li><li>Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)</li><li>Completed a 10-MW grid-scale battery study for reducing strain on the city of St. John&rsquo;s grid</li><li>Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN" style="color:inherit">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations</li></ul><div class="entry-heading"><div class="left">Systems Engineering Co-op</div><div class="right">Sep &ndash; Dec 2020</div></div><div class="entry-subheading"><div class="left">Jastram Engineering</div><div class="right">Vancouver, BC</div></div><ul class="padded-list"><li>For steering systems on naval frigates:<ul class="unpadded-list"><li>Developed documentation for security, safety, risk management, and failure analysis</li><li>Verified conformance of electrical systems to NATO standards</li><li>Successfully performed vibration analysis for hydraulic power units in Python</li></ul></li></ul><div class="heading right-heading">Education</div><div class="entry-heading"><div class="left">BASc Mechatronic Systems Engineering</div><div class="right">2016 &ndash; 2021</div></div><div class="entry-subheading"><div class="left">Simon Fraser University</div><div class="right">Vancouver, BC</div></div><ul class="unpadded-list"><li>3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll</li><li>4.33 GPA in statistics and engineering optimization courses</li></ul><div class="heading right-heading">Personal Projects</div><div class="entry-heading"><div class="left"><a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a></div><div class="right">2023 &ndash; Present</div></div><ul class="unpadded-list"><li>Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner</li><li>Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs</li><li>Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a></li></ul><div class="entry-heading"><div class="left">Author of multiple Python libraries</div><div class="right">2024 &ndash; Present</div></div><ul class="unpadded-list"><li>Applications span <a href="https://keeganmjgreen.github.io/signal_perfect/">signal resampling</a>, <a href="https://keeganmjgreen.github.io/papaya/">Pandas/dataclasses interoperability</a>, and ease of writing <a href="https://keeganmjgreen.github.io/decision_tracker/">explainable, traceable, and auditable Python programs</a></li></ul><div class="entry-heading"><div class="left"><a href="https://photos.app.goo.gl/wD3Qo23V8P8Yhnq37">Series About Energy, Renewables, and Climate Change</a></div><div class="right">2022 &ndash; Present</div></div><ul class="unpadded-list"><li>A series of web postings of interesting, significant, and actionable facts and pieces of information about energy, renewables, and fighting climate change</li></ul><div class="entry-heading"><div class="left"><a href="https://github.com/keeganmjgreen/python-cluedo">Cluedo Game Simulator and AI Assistant</a></div><div class="right">2023</div></div><ul class="unpadded-list"><li>Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem</li><li>Made an interactive player dashboard to visualize game and simulation results</li></ul><div class="entry-heading"><div class="left"><a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a></div><div class="right">2022 &ndash; 2023</div></div><ul class="unpadded-list"><li>Created an IoT dashboard and Python-based interface for remote monitoring & control</li><li>Developed a farm process model for minimizing consumption of energy and resources</li><li>Completed the first phase on-time to successfully control the farm across Canada</li></ul><div class="entry-heading"><div class="left">Energy Yield Model of a Gas Turbine</div><div class="right">2021</div></div><ul class="unpadded-list"><li>Performed statistical analysis and trained machine learning models on sensor data</li><li>Verified, visualized, and reported model performances</li></ul><div class="entry-heading"><div class="left">Model of Fuel Cell EV Air Supply System for Optimization</div><div class="right">2020</div></div><ul class="unpadded-list"><li>Identified the potential for optimization among car manufacturers</li><li>Defined an empirical relationship between fuel cell humidity and performance</li><li>Numerically modeled turbo compressor to feed fuel cell oxygen</li></ul><div class="entry-heading"><div class="left">Optimization of a Telescopic Handler Mechanism</div><div class="right">2020</div></div><ul class="unpadded-list"><li>Applications in structural engineering and robotics</li><li>Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms</li></ul></div>
+            <div class="bottom-gradient-line"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"><!-- footer --></div>
+        </div>
+        <div class="right-padding"></div>
+    </div>
+</body>
+
+</html>
