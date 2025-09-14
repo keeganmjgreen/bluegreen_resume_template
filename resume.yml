@@ -8,23 +8,14 @@ page_1:
     title: Skillset
     content:
       Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
-        - Go
+        - <strong>Python</strong>
+        - Basic Rust, Java, Go, and <strong>Typescript</strong>
         - Git
-        - Linux
-        - Docker
+        - <strong>Linux</strong>
+        - <strong>Docker</strong>
         - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-        - Machine learning
-        - MLflow
-        - Basic Rust
-        - Basic Java
-        - MATLAB/Simulink and Optimization Toolbox
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
+        - Relational databases (<strong>PostgreSQL</strong>) <br> and ORMs
+        - <strong>Grafana</strong>
       Electrical Systems:
         - Power and signal electronics analysis
         - Digital design
@@ -44,16 +35,17 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
+          - Created a high-level model of Ontario's electrical grid for optimization using data from Ontario's system operator and OpenInfrastructureMap data
+          - ? Developed, deployed, and maintained an optimization service that performs city-wide demand response by controlling grid-scale batteries and fleets of EVs, for an ongoing program with Canadian utilities and system operators
             : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
             : - Helped progress the pilot project with the taxi company to the next stage by creating a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a>
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
-            : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
+            : - Created optimization models for minimizing energy cost and grid strain in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
           - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-MW grid-scale battery study for reducing strain on the city of St. John&rsquo;s grid
+          - Completed a 10-MW grid-scale battery study for reducing grid strain in St. John&rsquo;s
           - Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN" style="color:inherit">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
       - name: Systems Engineering Co-op
         period: Sep &ndash; Dec 2020
@@ -74,10 +66,15 @@ page_2:
         location: Vancouver, BC
         content:
           - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
   projects_section:
     title: Personal Projects
     content:
+      - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
+        period: 2022 &ndash; 2023
+        content:
+          - Integrated a Raspberry Pi and microcontroller with a variety of sensors and actuators
+          - Created an IoT dashboard and Python-based interface for remote monitoring & control
+          - Completed the first phase on-time to successfully control the farm across Canada
       - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
         period: 2023 &ndash; Present
         content:
@@ -97,12 +94,6 @@ page_2:
         content:
           - Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem
           - Made an interactive player dashboard to visualize game and simulation results
-      - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
-        period: 2022 &ndash; 2023
-        content:
-          - Created an IoT dashboard and Python-based interface for remote monitoring & control
-          - Developed a farm process model for minimizing consumption of energy and resources
-          - Completed the first phase on-time to successfully control the farm across Canada
       - name: Energy Yield Model of a Gas Turbine
         period: "2021"
         content:
