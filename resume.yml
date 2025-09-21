@@ -84,7 +84,7 @@ page_2:
           - Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
           - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by AT200 cargo UAVs
           - Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a>
-      - name: Author of multiple Python libraries
+      - name: Author of Multiple Python Libraries
         period: 2024 &ndash; Present
         content:
           - Applications span <a href="https://keeganmjgreen.github.io/signal_perfect/">signal resampling</a>, <a href="https://keeganmjgreen.github.io/papaya/">Pandas/dataclasses interoperability</a>, and ease of writing <a href="https://keeganmjgreen.github.io/decision_tracker/">explainable, traceable, and auditable Python programs</a>
