@@ -2,34 +2,29 @@ name: Keegan Green
 tagline: Motivated &middot; Adaptable &middot; Dependable
 phone: (778) 237-5533
 email: keeganmjgreen@gmail.com
-location: Ottawa, ON
+location: Ottawa, Canada
 page_1:
   skills_section:
     title: Skillset
     content:
-      Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
+      Languages:
+        - Python
         - Go
-        - Git
-        - Linux
-        - Docker
-        - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-        - Machine learning
-        - MLflow
+        - Typescript and basic React
         - Basic Rust
         - Basic Java
-        - MATLAB/Simulink and Optimization Toolbox
+      Technologies:
+        - OpenAPI
+        - Relational databases (PostgreSQL) <br> and ORMs
+        - Docker
+        - CI/CD
+        - Linux
+        - Git
+        - Grafana
       Control Systems:
+        - Optimization
         - Modern optimal and digital control
         - Modeling and simulation
-      Electrical Systems:
-        - Power and signal electronics analysis
-        - Digital design
-        - Microcontrollers and single-board computers
-        - Real-time systems
   highlights_section:
     title: Where I Excel
     content:
@@ -42,23 +37,25 @@ page_1:
       - name: Optimization Engineer
         period: 2022 &ndash; Present
         institution: BluWave~ai
-        location: Ottawa, ON
+        location: Ottawa, Canada
         content:
-          - ? Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
-            : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
-          - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
-          - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
-            : - Helped progress the pilot project with the taxi company to the next stage by creating a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a>
+          - ? Created and maintained a scalable optimization service that aggregates grid-scale batteries and hundreds of EVs into a virtual power plant for load curtailment
+            : - Designed and implemented rulesets that collaborate with EV owners and local utilities to reduce strain on the electrical grid, as part of the company's flagship product
+              - Incorporated an algorithm that pauses and resumes EV charging to consume power when the energy mix is green, subject to users' flexible schedules and desired battery levels
+              - Integrated with APIs and data sources to aid automated decision-making, with graceful fallback strategies for API downtime or missing data
+          - ? Created a high-performance and flexible service for simulating electrical devices, user behaviors, and how they all interact in the grid and electricity market
+            : - By enabling controllable EVs and grid-scale batteries to be simulated on demand via API, developers and QA engineers are empowered to test asset control software in a sandbox and play out hypothetical scenarios, building confidence in the software's performance
+          - ? Collaboratively developed and deployed a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location and battery level
+            : - Helped progress the pilot project with the taxi company to the next stage by creating a real-time simulator of EV taxi fleet operations, showcased at COP28
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
-            : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
-          - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
-          - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-MW grid-scale battery study for reducing strain on the city of St. John&rsquo;s grid
+            : - Formulated optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many local school bus depots
+          - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
           - Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN" style="color:inherit">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
+        inner_list_css_class: padded-list
       - name: Systems Engineering Co-op
         period: Sep &ndash; Dec 2020
         institution: Jastram Engineering
-        location: Vancouver, BC
+        location: Vancouver, Canada
         content:
           - "For steering systems on naval frigates:":
               - Developed documentation for security, safety, risk management, and failure analysis
@@ -71,13 +68,16 @@ page_2:
       - name: BASc Mechatronic Systems Engineering
         period: 2016 &ndash; 2021
         institution: Simon Fraser University
-        location: Vancouver, BC
+        location: Vancouver, Canada
         content:
           - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
   projects_section:
     title: Personal Projects
     content:
+      - name: <a href="https://keeganmjgreen.github.io/how_phasors_work">How Phasors Work</a>
+        period: October 2025 &ndash; Present
+        content:
+          - A modern electrical engineering book teaching the mathematical models that govern the electrical grid
       - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
         period: 2023 &ndash; Present
         content:
@@ -114,8 +114,3 @@ page_2:
           - Identified the potential for optimization among car manufacturers
           - Defined an empirical relationship between fuel cell humidity and performance
           - Numerically modeled turbo compressor to feed fuel cell oxygen
-      - name: Optimization of a Telescopic Handler Mechanism
-        period: "2020"
-        content:
-          - Applications in structural engineering and robotics
-          - Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms

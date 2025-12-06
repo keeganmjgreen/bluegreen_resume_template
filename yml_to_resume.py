@@ -75,7 +75,7 @@ class ResumeSectionWithEntries(ResumeSection):
                 + f'<ul class="{self.outer_list_css_class}">'
                 + "".join(
                     [
-                        f"<li>{x if type(x) is str else list(x.keys())[0] + f'<ul class="unpadded-list">{"".join([f"<li>{v}</li>" for v in list(x.values())[0]])}</ul>'}</li>"
+                        f"<li>{x if type(x) is str else list(x.keys())[0] + f'<ul class="{entry.inner_list_css_class}">{"".join([f"<li>{v}</li>" for v in list(x.values())[0]])}</ul>'}</li>"
                         for x in entry.content
                     ]
                 )
@@ -121,6 +121,7 @@ class ResumeEntry(pydantic.BaseModel):
     institution: str = ""
     location: str = ""
     content: list[str | SingleKeyDict[str, list[str]]]
+    inner_list_css_class: Literal["padded-list", "unpadded-list"] = "unpadded-list"
 
 
 SingleKeyDict = dict
