@@ -8,22 +8,13 @@ page_1:
     title: Skillset
     content:
       Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
+        - Python
+        - Basic C/C++
+        - A strong desire to learn more Rust :)
+        - Basic Java
         - Go
         - Git
         - Linux
-        - Docker
-        - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
-        - Machine learning
-        - MLflow
-        - Basic Java
-        - MATLAB/Simulink and Optimization Toolbox
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
       Electrical Systems:
         - Power and signal electronics analysis
         - Digital design
@@ -34,7 +25,7 @@ page_1:
     content:
       - Showing initiative in end-to-end problem solving, from conception to deployment
       - Creating reusable, well-tested, and fast software
-      - Considering all aspects of a problem, from technical to green energy implications
+      - Considering all aspects of a problem
   experiences_section:
     title: Experience
     content:
@@ -64,6 +55,7 @@ page_1:
               - Developed documentation for security, safety, risk management, and failure analysis
               - Verified conformance of electrical systems to NATO standardization agreement
               - Successfully performed vibration analysis for hydraulic power units in Python
+          - Built a ship steering test console using embedded C++ and integrated it with an autopilot system
 page_2:
   qualifications_section:
     title: Education
