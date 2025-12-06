@@ -13,8 +13,6 @@ import yaml
 class ResumeSection(pydantic.BaseModel, abc.ABC):
     name: ClassVar[str]
 
-    title: str
-
     @abc.abstractmethod
     def to_html(self) -> str:
         raise NotImplementedError
@@ -23,6 +21,7 @@ class ResumeSection(pydantic.BaseModel, abc.ABC):
 class SkillsSection(ResumeSection):
     name = "skills_section"
 
+    title: str
     content: list[str] | dict[str, list[str]]
 
     def to_html(self) -> str:
@@ -47,6 +46,7 @@ class SkillsSection(ResumeSection):
 class HighlightsSection(ResumeSection):
     name = "highlights_section"
 
+    title: str
     content: list[str]
 
     def to_html(self) -> str:
@@ -61,6 +61,8 @@ class HighlightsSection(ResumeSection):
 class ResumeSectionWithEntries(ResumeSection):
     content: list[ResumeEntry]
     outer_list_css_class: ClassVar[Literal["padded-list", "unpadded-list"]]
+
+    title: str
 
     def to_html(self) -> str:
         return f'<div class="heading right-heading">{self.title}</div>' + "".join(
@@ -105,6 +107,15 @@ class ProjectsSection(ResumeSectionWithEntries):
     title: str = "Projects"
 
 
+class ParagraphSection(ResumeSection):
+    name = "paragraph_section"
+
+    content: list[str]
+
+    def to_html(self) -> str:
+        return "".join([f"<p>{paragraph}</p>" for paragraph in self.content])
+
+
 class ResumeEntry(pydantic.BaseModel):
     name: str
     period: str
@@ -126,6 +137,7 @@ SECTION_CLASSES_BY_REGION: dict[Region, list[ResumeSection]] = {
         ExperiencesSection,
         QualificationsSection,
         ProjectsSection,
+        ParagraphSection,
     ],
 }
 
@@ -148,7 +160,7 @@ def convert_resume_yml_to_html(
         template = template.replace(f"<!-- {field} -->", resume_yml[field])
     sections_yml = {}
     for i in page_numbers:
-        sections_yml |= resume_yml[f"page_{i}"]
+        sections_yml |= resume_yml.get(f"page_{i}", {})
     for region, section_classes in SECTION_CLASSES_BY_REGION.items():
         template = template.replace(
             f"<!-- {region} -->",

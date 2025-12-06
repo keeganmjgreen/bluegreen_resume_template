@@ -7,7 +7,7 @@ page_1:
   skills_section:
     title: Software Skills
     content:
-      - <strong>Python</strong> &middot; NumPy, SciPy, scikit-learn, Pandas, GeoPandas, Shapely, Kedro, SQLAlchemy, Pydantic, pytest
+      - <strong>Python</strong> &middot; NumPy, SciPy, scikit-learn, Pandas, GeoPandas, Shapely, Xarray, Kedro, SQLAlchemy
       - Machine learning
       - MLflow
       - Git
@@ -30,7 +30,7 @@ page_1:
         institution: BluWave~ai
         location: Ottawa, ON
         content:
-          - ? Created, evaluated, and deployed novel load predictors for Prince Edward Island and Mumbai, which outperformed the baseline by 17%
+          - ? Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island, which outperformed the baseline by 17%
             : - By helping utilities purchase green energy in advance, this is a tool for reducing emissions
           - Created a data ingestion pipeline to get hourly updates on how much power Prince Edward Island is consuming and generating from wind and solar, to feed ML inference
           - ? Developed and deployed an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
