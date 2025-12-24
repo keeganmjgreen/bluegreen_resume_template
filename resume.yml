@@ -47,7 +47,7 @@ page_1:
           - ? Developed, deployed, and maintained an optimization service to reduce strain on the electrical grid by controlling grid-scale batteries and hundreds of EVs, for an ongoing EV Everywhere program with Hydro Ottawa
             : - Created an algorithm that controls EVs&rsquo; charging to consume power when the energy mix is green
           - Developed and deployed software to optimally control a solar-powered hydrogen production and storage system, extending its component lifespan while generating electricity from green hydrogen at high-demand times
-          - ? Collaboratively developed, and deployed, a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
+          - ? Collaboratively developed and deployed a cloud service that sends timely and helpful charging station recommendations to EV taxi drivers based on location
             : - Helped progress the pilot project with the taxi company to the next stage by creating a real-time simulator of EV taxi fleet operations, showcased at <a href="https://www.cop28.com/en/" style="color:inherit">COP28</a>
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
@@ -61,6 +61,7 @@ page_1:
         location: Vancouver, BC
         content:
           - "For steering systems on naval frigates:":
+              - Streamlined the tracking of engineering requirements, helping to raise customer value by ~$20K
               - Developed documentation for security, safety, risk management, and failure analysis
               - Verified conformance of electrical systems to NATO standards
               - Successfully performed vibration analysis for hydraulic power units in Python
