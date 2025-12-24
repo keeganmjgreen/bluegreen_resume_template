@@ -6,7 +6,10 @@ location: Ottawa, ON
 page_1:
   paragraph_section:
     content:
-      - Hello,
-      - ...
+      - Dear Ericsson hiring team,
+      - As a keen software engineer with hardware experience, I&rsquo;d be excited to be a member of Ericsson&rsquo;s team. I have a BASc in Mechatronic Systems Engineering and a strong interest in working close to both hardware and production environments. My hands-on experience building, testing, and deploying software for complex, real-world systems will enable me to contribute well to 5G radio and Open RAN products.
+      - In my current role as a software engineer at BluWave-ai, I develop and maintain Linux-based services in Python, Go, and Java. I frequently solve problems that arise when integrating software services with hardware on the ground, working closely with stakeholders and incorporating feedback from users. From automated testing and CI/CD practices, to developing reusable libraries and simulation environments in which to test our software, I have a lot of experience ensuring that software works correctly. I would enjoy exploring how AI techniques can support more reliable and maintainable code.
+      - In my spare time, my interests span software, hardware, and electrical engineering. My personal project that speaks best to this trifecta is my IoT integration of a hydroponic farm. This project involved embedded C++ microcontroller development, Linux development on a single-board computer, and integration and troubleshooting with a variety of peripherals communicating over UART and I2C. I&rsquo;m comfortable working in Linux-based systems and enjoy digging into lower-level software.
+      - Motivated by learning from experienced teams and contributing to high-quality, production-grade software, I would welcome the opportunity to grow within Ericsson&rsquo;s 5G and Open RAN development environment.
       - Looking forward to hearing from you,
       - Keegan Green

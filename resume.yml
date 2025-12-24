@@ -8,34 +8,22 @@ page_1:
     title: Skillset
     content:
       Software Engineering:
-        - <strong>Python</strong> &middot; Pandas, NumPy, SciPy, Plotly/Dash, Kedro, SQLAlchemy, Pydantic, pytest
-        - <strong>Optimization</strong> &middot; Pyomo, Cbc, GLPK
-        - Go
-        - Git
+        - "Programming languages: C/C++, Java, proficient Golang"
+        - "Scripting languages: Bash, proficient Python"
         - Linux
-        - Docker
-        - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
-        - Grafana
+        - CI/CD test infrastructure
+        - Git and AI-assisted code reviews
         - Machine learning
-        - MLflow
-        - Basic Rust
-        - Basic Java
-        - MATLAB/Simulink and Optimization Toolbox
-      Control Systems:
-        - Modern optimal and digital control
-        - Modeling and simulation
       Electrical Systems:
-        - Power and signal electronics analysis
-        - Digital design
         - Microcontrollers and single-board computers
+        - Digital design
         - Real-time systems
   highlights_section:
     title: Where I Excel
     content:
       - Showing initiative in end-to-end problem solving, from conception to deployment
       - Creating reusable, well-tested, and fast software
-      - Considering all aspects of a problem, from technical to green energy implications
+      - Considering all aspects of a problem, from technical to end-user implications
   experiences_section:
     title: Experience
     content:
@@ -52,8 +40,6 @@ page_1:
           - ? Developed and deployed prototype optimizers of electric bus charging operations for multiple transit agencies in simulation
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
-          - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-MW grid-scale battery study for reducing strain on the city of St. John&rsquo;s grid
           - Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN" style="color:inherit">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
       - name: Systems Engineering Co-op
         period: Sep &ndash; Dec 2020
@@ -65,6 +51,7 @@ page_1:
               - Developed documentation for security, safety, risk management, and failure analysis
               - Verified conformance of electrical systems to NATO standards
               - Successfully performed vibration analysis for hydraulic power units in Python
+          - Built a ship steering test console using embedded C++ and integrated it with an autopilot system
 page_2:
   qualifications_section:
     title: Education
@@ -75,48 +62,41 @@ page_2:
         location: Vancouver, BC
         content:
           - 3.67 CGPA; President&rsquo;s Honour Roll, three-time Dean&rsquo;s Honour Roll
-          - 4.33 GPA in statistics and engineering optimization courses
+          - Extensive coursework on electrical engineering and embedded systems
   projects_section:
     title: Personal Projects
     content:
+      - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a> (C++, Linux, Python)
+        period: 2022 &ndash; 2023
+        content:
+          - Integrated a single-board computer and microcontroller with a variety of sensors and actuators via I2C and UART
+          - Created an IoT dashboard and Python-based interface for remote monitoring & control
+          - Completed the first phase on-time to successfully control the farm across Canada
+      - name: <a href="https://github.com/keeganmjgreen/circuit_simulator">Circuit simulator</a>
+        period: Jan &ndash; March 2025
+        content:
+          - Software for simulating electronic circuits
+      - name: <a href="https://keeganmjgreen.github.io/how_phasors_work">How Phasors Work</a>
+        period: October 2025 &ndash; Present
+        content:
+          - A modern electrical engineering textbook
+      - name: Author of Multiple Python Libraries
+        period: 2024 &ndash; Present
+        content:
+          - Applications span <a href="https://keeganmjgreen.github.io/signal_perfect/">signal resampling</a>, <a href="https://keeganmjgreen.github.io/papaya/">Pandas/dataclasses interoperability</a>, and ease of writing <a href="https://keeganmjgreen.github.io/decision_tracker/">explainable, traceable, and auditable Python programs</a>
       - name: <a href="https://keeganmjgreen.github.io/green_airliner/index.html">Simulation of Mid-Air Refueling of a Hydrogen-Powered Airliner</a>
         period: 2023 &ndash; Present
         content:
           - Design and <a href="https://keeganmjgreen.github.io/green_airliner/3_feasibility_studies/3_feasibility_studies.html">feasibility study</a> determining how to refuel a sustainably-powered commercial airliner
           - Developed a <a href="https://keeganmjgreen.github.io/green_airliner/4_simulation/4_simulation.html">3D computer simulation</a> of mid-air refueling by cargo UAVs
-          - Created a flight controller <a href="https://medium.com/@keeganmjgreen/flight-controller-ui-mockup-for-mid-air-refueling-of-an-electric-airliner-d6fb8ba6dd5d">UI mockup</a>
-      - name: Author of Multiple Python Libraries
-        period: 2024 &ndash; Present
-        content:
-          - Applications span <a href="https://keeganmjgreen.github.io/signal_perfect/">signal resampling</a>, <a href="https://keeganmjgreen.github.io/papaya/">Pandas/dataclasses interoperability</a>, and ease of writing <a href="https://keeganmjgreen.github.io/decision_tracker/">explainable, traceable, and auditable Python programs</a>
-      - name: <a href="https://photos.app.goo.gl/wD3Qo23V8P8Yhnq37">Series About Energy, Renewables, and Climate Change</a>
-        period: 2022 &ndash; Present
-        content:
-          - A series of web postings of interesting, significant, and actionable facts and pieces of information about energy, renewables, and fighting climate change
       - name: <a href="https://github.com/keeganmjgreen/python-cluedo">Cluedo Game Simulator and AI Assistant</a>
         period: "2023"
         content:
           - Wrote software guaranteed to beat human players at Cluedo by solving the game as a Boolean satisfiability problem
           - Made an interactive player dashboard to visualize game and simulation results
-      - name: <a href="https://medium.com/@keeganmjgreen/iot-integration-of-a-hydroponic-farm-f9b4fefc8922">IoT Integration of a Hydroponic Farm</a>
-        period: 2022 &ndash; 2023
-        content:
-          - Created an IoT dashboard and Python-based interface for remote monitoring & control
-          - Developed a farm process model for minimizing consumption of energy and resources
-          - Completed the first phase on-time to successfully control the farm across Canada
-      - name: Energy Yield Model of a Gas Turbine
-        period: "2021"
-        content:
-          - Performed statistical analysis and trained machine learning models on sensor data
-          - Verified, visualized, and reported model performances
       - name: Model of Fuel Cell EV Air Supply System for Optimization
         period: "2020"
         content:
           - Identified the potential for optimization among car manufacturers
           - Defined an empirical relationship between fuel cell humidity and performance
           - Numerically modeled turbo compressor to feed fuel cell oxygen
-      - name: Optimization of a Telescopic Handler Mechanism
-        period: "2020"
-        content:
-          - Applications in structural engineering and robotics
-          - Verified and visualized solution to 1000-variable optimization problem obtained using tuned gradient-based and genetic algorithms
