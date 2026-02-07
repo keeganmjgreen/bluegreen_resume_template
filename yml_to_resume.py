@@ -28,10 +28,10 @@ class SkillsSection(ResumeSection):
         content = (
             self.content if isinstance(self.content, dict) else {None: self.content}
         )
-        return f'<div class="heading left-heading">{self.title}</div>' + "".join(
+        return f'<h2 class="heading left-heading">{self.title}</h2>' + "".join(
             [
                 (
-                    f'<div class="entry-heading"><div class="left">{skill_group_name}</div></div>'
+                    f'<h3 class="entry-heading"><div class="left">{skill_group_name}</div></h3>'
                     if skill_group_name
                     else ""
                 )
@@ -51,7 +51,7 @@ class HighlightsSection(ResumeSection):
 
     def to_html(self) -> str:
         return (
-            f'<div class="heading right-heading">{self.title}</div>'
+            f'<h2 class="heading right-heading">{self.title}</h2>'
             + "<ul>"
             + "".join([f"<li>{highlight}</li>" for highlight in self.content])
             + "</ul>"
@@ -64,7 +64,7 @@ class ResumeSectionWithEntries(ResumeSection):
     outer_list_css_class: ClassVar[Literal["padded-list", "unpadded-list"]]
 
     def to_html(self) -> str:
-        return f'<div class="heading right-heading">{self.title}</div>' + "".join(
+        return f'<h2 class="heading right-heading">{self.title}</h2>' + "".join(
             [
                 f'<div class="entry-heading"><div class="left">{entry.name}</div><div class="right">{entry.period}</div></div>'
                 + (
