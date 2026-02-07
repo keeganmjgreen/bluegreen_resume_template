@@ -144,6 +144,7 @@ SECTION_CLASSES_BY_REGION: dict[Region, list[ResumeSection]] = {
 def parse_cli_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--template", default="bluegreen_resume_template.html")
+    parser.add_argument("--styles", default="styles.css")
     parser.add_argument("--resume-yml", default="resume.yml")
     parser.add_argument("--page-number", type=int, default=None)
     parser.add_argument("--output", default="resume.html")
@@ -151,10 +152,11 @@ def parse_cli_args() -> argparse.Namespace:
 
 
 def convert_resume_yml_to_html(
-    template: str, resume_yml: dict[str, Any], page_number: int | None = None
+    template: str, styles: str, resume_yml: dict[str, Any], page_number: int | None = None
 ) -> str:
     page_numbers = [1, 2] if page_number is None else [page_number]
     template = deepcopy(template)
+    template = template.replace("/* style */", "\n        ".join(styles.split("\n")))
     for field in ["name", "tagline", "phone", "email", "location"]:
         template = template.replace(f"<!-- {field} -->", resume_yml[field])
     sections_yml = {}
@@ -180,6 +182,7 @@ if __name__ == "__main__":
     args = parse_cli_args()
     html = convert_resume_yml_to_html(
         template=Path(args.template).read_text(),
+        styles=Path(args.styles).read_text(),
         resume_yml=yaml.safe_load(Path(args.resume_yml).read_text()),
         page_number=args.page_number,
     )
