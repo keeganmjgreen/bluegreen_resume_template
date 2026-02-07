@@ -7,7 +7,7 @@
     --left-padding-min: 36pt;
     --right-padding-min: var(--left-padding-min);
     --mobile-left-padding-min: 18pt;
-    --mobile-right-padding-min: 36pt;
+    --mobile-right-padding-min: 18pt;
     /* Set the max width of the centered page such that, when printing to a US Letter PDF with the
         given scale factor, the main column will have the same character width as on-screen. */
     --centered-page-width-max: calc(var(--us-letter-page-width) / var(--scale-factor-for-printing-to-pdf) - var(--left-padding-min) - var(--right-padding-min));
@@ -98,6 +98,8 @@ body {
     :root {
         --left-padding-min: var(--mobile-left-padding-min);
         --right-padding-min: var(--mobile-right-padding-min);
+        --inter-column-padding: 0pt;
+        --side-bar-color: var(--main-background-color);
     }
 }
 
