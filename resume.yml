@@ -15,7 +15,7 @@ page_1:
         - Linux
         - Docker
         - CI/CD
-        - Relational databases (PostgreSQL) <br> and ORMs
+        - Relational databases (PostgreSQL) and ORMs
         - Grafana
         - Machine learning
         - MLflow
