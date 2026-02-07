@@ -129,17 +129,20 @@
             }
         }
 
-        .outer-container .centered-page ul.top-left {
+        .outer-container .centered-page .top-left {
             grid-area: top-left;
             background-color: var(--side-bar-color);
             padding-top: var(--header-padding-top);
             padding-right: calc(var(--inter-column-padding) / 2);
             align-content: center;
+            padding-bottom: var(--header-padding-bottom);
+        }
+
+        .outer-container .centered-page .top-left ul {
             margin-top: 0;
             list-style-type: none;
             padding-left: 0;
             margin-bottom: 0;
-            padding-bottom: var(--header-padding-bottom);
         }
 
         .outer-container .centered-page ul.top-left li:not(:first-child):not(:last-child) {
@@ -315,11 +318,13 @@
     <div class="outer-container">
         <div class="left-padding"></div>
         <div class="centered-page">
-            <ul class="top-left">
-                <li>phone</li>
-                <li style="font-size: small; margin-top: -1pt;"><a style="color: var(--text-color);" href="mailto:email">email</a></li>
-                <li>location</li>
-            </ul>
+            <div class="top-left">
+                <ul >
+                    <li>phone</li>
+                    <li style="font-size: small; margin-top: -1pt;"><a style="color: var(--text-color);" href="mailto:email">email</a></li>
+                    <li>location</li>
+                </ul>
+            </div>
             <div class="top-right">
                 <div class="title">name</div>
                 <div class="subtitle">tagline</div>
