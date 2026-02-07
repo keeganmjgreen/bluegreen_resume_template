@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import abc
 import argparse
-from copy import deepcopy
 from pathlib import Path
 from typing import Any, ClassVar, Literal
 
@@ -144,24 +143,26 @@ SECTION_CLASSES_BY_REGION: dict[Region, list[ResumeSection]] = {
 def parse_cli_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--template", default="bluegreen_resume_template.html")
+    parser.add_argument("--subtemplate", default="bluegreen_resume_subtemplate.html")
+    parser.add_argument("--styles", default="styles.css")
     parser.add_argument("--resume-yml", default="resume.yml")
     parser.add_argument("--page-number", type=int, default=None)
+    parser.add_argument("--populated-subtemplate", default="populated_subtemplate.html")
     parser.add_argument("--output", default="resume.html")
     return parser.parse_args()
 
 
-def convert_resume_yml_to_html(
-    template: str, resume_yml: dict[str, Any], page_number: int | None = None
+def populate_subtemplate(
+    subtemplate: str, resume_yml: dict[str, Any], page_number: int | None = None
 ) -> str:
     page_numbers = [1, 2] if page_number is None else [page_number]
-    template = deepcopy(template)
     for field in ["name", "tagline", "phone", "email", "location"]:
-        template = template.replace(f"<!-- {field} -->", resume_yml[field])
+        subtemplate = subtemplate.replace(f"<!-- {field} -->", resume_yml[field])
     sections_yml = {}
     for i in page_numbers:
         sections_yml |= resume_yml.get(f"page_{i}", {})
     for region, section_classes in SECTION_CLASSES_BY_REGION.items():
-        template = template.replace(
+        subtemplate = subtemplate.replace(
             f"<!-- {region} -->",
             "".join(
                 [
@@ -172,15 +173,31 @@ def convert_resume_yml_to_html(
             ),
         )
     if page_number is not None:
-        template = template.replace("<!-- footer -->", f"Page {page_number} of 2")
+        subtemplate = subtemplate.replace("<!-- footer -->", f"Page {page_number} of 2")
+
+    return subtemplate
+
+
+def populate_template(template: str, styles: str, populated_subtemplate: str) -> str:
+    template = template.replace("/* style */", "\n        ".join(styles.split("\n")))
+    template = template.replace(
+        "<!-- subtemplate -->", "\n    ".join(populated_subtemplate.split("\n"))
+    )
+
     return template
 
 
 if __name__ == "__main__":
     args = parse_cli_args()
-    html = convert_resume_yml_to_html(
-        template=Path(args.template).read_text(),
+    populated_subtemplate = populate_subtemplate(
+        subtemplate=Path(args.subtemplate).read_text(),
         resume_yml=yaml.safe_load(Path(args.resume_yml).read_text()),
         page_number=args.page_number,
     )
-    Path(args.output).write_text(html)
+    populated_template = populate_template(
+        template=Path(args.template).read_text(),
+        styles=Path(args.styles).read_text(),
+        populated_subtemplate=populated_subtemplate,
+    )
+    Path(args.populated_subtemplate).write_text(populated_subtemplate)
+    Path(args.output).write_text(populated_template)
