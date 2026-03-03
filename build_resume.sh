@@ -11,4 +11,4 @@ pdfunite resume_page_1.pdf resume_page_2.pdf green_resume.pdf
 rm resume_page_1.pdf
 rm resume_page_2.pdf
 
-uv run yml_to_resume.py --output=resume.html
+uv run yml_to_resume.py --output=resume.html --populated-subtemplate=populated_subtemplate.html

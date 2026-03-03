@@ -39,8 +39,14 @@ page_1:
   experiences_section:
     title: Experience
     content:
+      - name: Software Engineer
+        period: March 2026 &ndash; Present
+        institution: Terawatt Infrastructure
+        location: Ottawa, ON
+        content:
+          - Developing load management software for commercial EV fleet charging sites
       - name: Optimization Engineer
-        period: 2022 &ndash; Present
+        period: Feb 2022 &ndash; Feb 2026
         institution: BluWave~ai
         location: Ottawa, ON
         content:
@@ -53,7 +59,7 @@ page_1:
             : - Created optimization models for peak-shaving and energy cost minimization in a model predictive control scheme, used in a simulation study for many Ontario school bus depots
           - Created a library used by multiple projects for testing smart grid control software in a variety of simulated environments
           - Created, evaluated, and deployed novel load predictors for Mumbai and Prince Edward Island (which outperformed LGBM by 17%)
-          - Completed a 10-MW grid-scale battery study for reducing strain on the city of St. John&rsquo;s grid
+          - Completed a 10-MW grid-scale battery peak-shaving study for the city of St. John&rsquo;s grid
           - Co-inventor on <a href="https://patents.google.com/?inventor=Keegan+Michael+John+GREEN" style="color:inherit">five patents</a>, including for the real-time, data-driven minimization of cost and greenhouse gas emissions with EV charging stations
       - name: Systems Engineering Co-op
         period: Sep &ndash; Dec 2020
@@ -61,7 +67,6 @@ page_1:
         location: Vancouver, BC
         content:
           - "For steering systems on naval frigates:":
-              - Streamlined the tracking of engineering requirements, helping to raise customer value by ~$20K
               - Developed documentation for security, safety, risk management, and failure analysis
               - Verified conformance of electrical systems to NATO standards
               - Successfully performed vibration analysis for hydraulic power units in Python
