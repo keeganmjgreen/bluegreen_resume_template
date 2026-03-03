@@ -17,3 +17,4 @@ Get your next **cleantech** role.
 3. Run `build_resume.sh` to generate a portable HTML resume (`resume.html`) and a two-page resume PDF (`resume.pdf`) of equal quality. This requires:
    - [uv](https://docs.astral.sh/uv/)
    - Google Chrome (to print the resume to PDF in the background)
+      - On macOS: `alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"`
