@@ -147,7 +147,7 @@ def parse_cli_args() -> argparse.Namespace:
     parser.add_argument("--styles", default="styles.css")
     parser.add_argument("--resume-yml", default="resume.yml")
     parser.add_argument("--page-number", type=int, default=None)
-    parser.add_argument("--populated-subtemplate", default="populated_subtemplate.html")
+    parser.add_argument("--populated-subtemplate", default=None)
     parser.add_argument("--output", default="resume.html")
     return parser.parse_args()
 
@@ -199,5 +199,6 @@ if __name__ == "__main__":
         styles=Path(args.styles).read_text(),
         populated_subtemplate=populated_subtemplate,
     )
-    Path(args.populated_subtemplate).write_text(populated_subtemplate)
+    if args.populated_subtemplate is not None:
+        Path(args.populated_subtemplate).write_text(populated_subtemplate)
     Path(args.output).write_text(populated_template)
